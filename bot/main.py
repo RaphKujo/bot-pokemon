@@ -179,6 +179,7 @@ def diagnostic(racine, discord):
     reglages = charger_yaml(racine / "config" / "boutiques.yaml")
     lecteur = sources.Lecteur(reglages.get("delai_secondes", 2))
     lignes = ["Diagnostic du bot Pokémon"]
+    etat_test = {"offres": {}}
     for boutique in reglages["boutiques"]:
         if boutique["type"] == "page_produit" and not boutique.get("pages"):
             lignes.append(f"⚪ {boutique['nom']} : aucune page produit renseignée")
@@ -186,6 +187,11 @@ def diagnostic(racine, discord):
         try:
             offres = sources.lire_boutique(boutique, lecteur, config, reglages.get("pages_max", 6))
             lignes.append(f"🟢 {boutique['nom']} : lisible, {len(offres)} offres suivies")
+            for offre in offres:
+                offre["compare"] = regles.prix_compare(offre, config)
+                offre["cle"] = cle_offre(offre, config)
+                offre["prix_min"] = offre["prix"]
+                etat_test["offres"][offre["id"]] = offre
         except (sources.Bloque, sources.Echec) as erreur:
             lignes.append(f"🔴 {boutique['nom']} : {erreur}")
     try:
@@ -199,6 +205,11 @@ def diagnostic(racine, discord):
     texte = "\n".join(lignes)
     print(texte)
     discord.message(texte)
+    disponibles = [o for o in etat_test["offres"].values() if o["dispo"] in regles.DISPONIBLE]
+    exemple = min(disponibles, key=lambda o: (o["suivi_id"] != "regne-delta", -o["prix"]), default=None)
+    if exemple:
+        discord.message("Exemple du format des alertes :")
+        discord.alertes([({**exemple, "priorite": "normale"}, "nouveau", contexte_offre(exemple, etat_test))])
 
 
 def principal():
