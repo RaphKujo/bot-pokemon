@@ -57,13 +57,7 @@ boutiques:
     nom: Amazon.fr
     type: page_produit
     port: 0
-    pages:
-      - serie: regne-delta
-        type: etb
-        url: https://www.amazon.fr/dp/B0HGG3XXSX
-      - serie: regne-delta
-        type: bundle
-        url: https://www.amazon.fr/dp/B0HGG4KWKD
+    pages: []  # Amazon bloque les robots
 
   - id: blazing-tail
     nom: Blazing Tail
