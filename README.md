@@ -4,6 +4,19 @@ Le bot vérifie toutes les 5 minutes environ les boutiques configurées. Il t'al
 quand un produit français suivi est disponible au bon prix, et publie une page qui compare
 le prix de base au prix vendu. Il ne passe jamais de commande.
 
+## Adresses
+
+- Prix et alertes : https://raphkujo.github.io/bot-pokemon/
+- Classeur : https://raphkujo.github.io/bot-pokemon/classeur.html
+- Alertes : serveur Discord Alertes Pokémon, salon général
+
+## Classeur
+
+Le classeur trouve la carte, son visuel et sa cote via TCGdex. La cote reprend la tendance
+Cardmarket : c'est une estimation qui ne distingue ni la langue, ni l'état, ni la gradation.
+Les cartes sont enregistrées dans un gist secret du compte GitHub. Chaque appareil demande une
+clé GitHub limitée aux gists, à créer une seule fois.
+
 ## Installation
 
 1. **Discord :** dans ton serveur, ouvre Paramètres du salon > Intégrations > Webhooks.
@@ -35,6 +48,8 @@ le prix de base au prix vendu. Il ne passe jamais de commande.
 
 ## Limites
 
+- Fnac, Cultura, Micromania, Amazon et Blazing Tail ne sont actifs que si l'adresse de chaque
+  produit est renseignée dans `config/boutiques.yaml`.
 - GitHub peut retarder les vérifications, parfois de plusieurs dizaines de minutes.
   Les stocks qui partent en quelques minutes peuvent donc être manqués.
 - Le bot ne contourne aucune protection anti-robot et respecte le fichier robots.txt.
