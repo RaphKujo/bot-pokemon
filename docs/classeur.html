@@ -72,10 +72,11 @@ nav{color:var(--doux);font-size:.95rem}
     <p>Tes cartes sont enregistrées dans un espace privé de ton compte GitHub, pour les retrouver sur tous tes appareils. Fais-le une seule fois par appareil.</p>
     <ol class="etapes">
       <li><a id="lienJeton" target="_blank" rel="noopener">Crée ta clé d'accès sur GitHub</a>. La case gist est déjà cochée. Choisis une durée, par exemple 1 an, puis clique sur Generate token.</li>
-      <li>Copie la clé affichée et colle-la ci-dessous.</li>
+      <li>Sélectionne la clé affichée à la souris, du premier au dernier caractère, puis fais Ctrl+C. Le bouton de copie de GitHub ne fonctionne pas toujours ici.</li>
+      <li>Colle-la ci-dessous. Elle commence par ghp_.</li>
     </ol>
     <form id="formConnexion" class="grille">
-      <label>Clé d'accès GitHub<input id="jeton" type="password" autocomplete="off" required></label>
+      <label>Clé d'accès GitHub<input id="jeton" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ghp_" required></label>
       <div class="actions" style="align-self:end"><button class="principal" type="submit">Ouvrir mon classeur</button></div>
     </form>
     <p class="etat erreur" id="erreurConnexion" hidden></p>
@@ -428,7 +429,7 @@ async function demarrer() {
     afficher(); annoncer("");
     actualiserCotes();
   } catch (e) {
-    if (e.message === "cle") { ecrire("classeur.jeton", null); jeton = null; montrerConnexion("Cette clé n'est plus valide. Crée-en une nouvelle."); }
+    if (e.message === "cle") { ecrire("classeur.jeton", null); jeton = null; montrerConnexion("GitHub a refusé cette clé. Vérifie qu'elle est complète, ou crée-en une nouvelle."); }
     else annoncer("Ton classeur ne s'ouvre pas. Vérifie ta connexion et recharge la page.", true);
   }
 }
@@ -437,7 +438,15 @@ function montrerConnexion(message) {
   $("lienJeton").href = "https://github.com/settings/tokens/new?scopes=gist&description=" + encodeURIComponent("Classeur Pokémon");
   $("erreurConnexion").hidden = !message; $("erreurConnexion").textContent = message || "";
 }
-$("formConnexion").addEventListener("submit", e => { e.preventDefault(); jeton = $("jeton").value.trim(); ecrire("classeur.jeton", jeton); $("jeton").value = ""; demarrer(); });
+$("formConnexion").addEventListener("submit", e => {
+  e.preventDefault();
+  const saisie = $("jeton").value.trim();
+  if (!/^(ghp_|github_pat_)[A-Za-z0-9_]{20,}$/.test(saisie)) {
+    montrerConnexion("Ce que tu as collé n'est pas une clé GitHub. Une clé commence par ghp_ et ne contient pas d'espace. Recopie-la depuis GitHub.");
+    return;
+  }
+  jeton = saisie; ecrire("classeur.jeton", jeton); $("jeton").value = ""; demarrer();
+});
 $("recherche").addEventListener("input", surRecherche);
 $("filtre").addEventListener("input", afficherPage);
 $("tri").addEventListener("change", afficherPage);
