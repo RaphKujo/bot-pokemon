@@ -51,8 +51,9 @@ clé GitHub limitée aux gists, à créer une seule fois.
 
 ## Limites
 
-- Fnac, Cultura, Micromania, Amazon et Blazing Tail ne sont actifs que si l'adresse de chaque
-  produit est renseignée dans `config/boutiques.yaml`.
+- Amazon, Smyths Toys et Cultura refusent les robots : le bot ne les lit pas directement.
+  Le flux ChocoBonPlan signale les offres que ce site publie, toutes enseignes confondues.
+  Il ne remplace pas une surveillance directe : certaines offres peuvent manquer.
 - GitHub peut retarder les vérifications, parfois de plusieurs dizaines de minutes.
   Les stocks qui partent en quelques minutes peuvent donc être manqués.
 - Le bot ne contourne aucune protection anti-robot et respecte le fichier robots.txt.

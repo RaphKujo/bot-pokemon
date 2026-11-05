@@ -50,10 +50,7 @@ boutiques:
     type: page_produit
     port: 0
     port_inconnu: true
-    pages:
-      - serie: regne-delta
-        type: etb
-        url: https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-coffret-dresseur-delite-me06-mega-evolution-regne-delta/p/261817
+    pages: []  # Smyths refuse les robots (code 403)
 
   - id: fnac
     nom: Fnac
@@ -67,10 +64,7 @@ boutiques:
     type: page_produit
     port: 0
     port_inconnu: true
-    pages:
-      - serie: flamme-blanche
-        type: etb
-        url: https://www.cultura.com/p-coffret-pokemon-dresseur-d-elite-ecarlate-et-violet-flamme-blanche-11987401.html
+    pages: []  # Cultura refuse les robots (code 403)
 
   - id: micromania
     nom: Micromania
