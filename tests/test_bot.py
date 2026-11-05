@@ -40,6 +40,7 @@ def serie_type(titre):
     ("ETB - Pokemon - Méga-Évolution - ME01 - Scellé - Français", ("mega-evolution", "etb")),
     ("Coffret Dresseur d'élite 30e Anniversaire", ("30-ans", "etb")),
     ("Lot de boosters Pokémon 30 ans", ("30-ans", "bundle")),
+    ("Pokémon – Tripack – Règne Delta – ME06 – 3 boosters – en français", ("regne-delta", "tripack")),
     ("Display EV06 - Mascarade Crépusculaire [FR]", ("anciennes", "display")),
     ("Display EB08 - Poing de Fusion [FR]", ("anciennes", "display")),
     ("Display EV01 - Ecarlate et Violet [FR]", ("anciennes", "display")),
@@ -60,6 +61,7 @@ def test_produits_reconnus(titre, attendu):
     "Artset 4 blisters Règne Delta ME06 avec protection acrylique",
     "Portfolio + 1 booster Règne Delta",
     "Case 10 ETB - Pokemon - Règne Delta - Méga-Rayquaza - ME06",
+    "Pokémon – Pack – 1 ETB Règne Delta (ME06) + 2 Tripack Règne Delta (ME06)",
     "Display Bundle 151 scellée",
     "Display mini tins 151",
     "Display EB07 vide",
@@ -162,6 +164,20 @@ def test_ancienne_serie_alerte_sans_plafond():
     o = offre(prix=1850.0, total=1856.9, titre="Display EB08 - Poing de Fusion [FR]", **regle)
     assert regles.motif_alerte(o, None, True, CONFIG, T0) == "nouveau"
     assert "Poing de Fusion" in embed(o, "nouveau")["title"]
+
+
+def test_lecture_woocommerce():
+    produit = {"id": 7, "name": "Pokémon &#8211; Tripack &#8211; Règne Delta &#8211; ME06", "is_in_stock": True,
+               "is_purchasable": True, "permalink": "https://x.fr/p", "add_to_cart": {"text": "Ajouter au panier"},
+               "prices": {"price": "2199", "currency_minor_unit": 2}}
+
+    class Faux:
+        def lire(self, url):
+            return type("R", (), {"json": lambda s: [produit]})()
+
+    boutique = {"id": "b", "nom": "B", "url": "https://x.fr", "categories": ["tripack"], "port": 6.9}
+    o = sources.lire_woocommerce(boutique, Faux(), CONFIG)[0]
+    assert (o["prix"], o["dispo"], o["type"], o["suivi_id"]) == (21.99, "stock", "tripack", "regne-delta")
 
 
 def test_page_echappe_le_html():

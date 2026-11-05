@@ -23,13 +23,11 @@ boutiques:
     franco: 100
     note_precommande: Précommande sur invitation du Club LorenZone
 
-  # Plateforme à confirmer : le diagnostic dira si ce catalogue est lisible.
   - id: coin-des-barons
     nom: Le Coin des Barons
-    type: shopify
-    url: https://www.lecoindesbarons.com
-    collections: []
-    collections_cartes: []
+    type: woocommerce
+    url: https://lecoindesbarons.com
+    categories: [display-pokemon, coffret-dresseur-delite, tripack-pokemon, booster-pokemon, coffrets-pokemon, pokebox-pokemon]
     port: 6.90
 
   # Boutiques lues page par page : colle ici l'adresse de chaque produit à suivre.

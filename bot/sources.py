@@ -1,4 +1,5 @@
 """Lit les catalogues des boutiques, sans jamais contourner une protection."""
+import html
 import json
 import time
 from urllib.parse import urljoin, urlsplit
@@ -134,6 +135,41 @@ def lire_shopify(boutique, lecteur, config, pages_max=6):
     return offres
 
 
+def lire_woocommerce(boutique, lecteur, config, pages_max=6):
+    """Lit le catalogue public d'une boutique WooCommerce, une catégorie à la fois."""
+    offres = {}
+    for categorie in boutique.get("categories") or []:
+        for page in range(1, pages_max + 1):
+            url = (f"{boutique['url'].rstrip('/')}/wp-json/wc/store/v1/products"
+                   f"?category={categorie}&per_page=100&page={page}")
+            try:
+                lot = lecteur.lire(url).json()
+            except ValueError:
+                raise Echec("catalogue illisible : la boutique n'expose pas ce flux") from None
+            for produit in lot:
+                titre = html.unescape(produit["name"])
+                trouve = produits.reconnaitre(titre, config["series"])
+                if not trouve:
+                    continue
+                prix = produit.get("prices") or {}
+                if not prix.get("price"):
+                    continue
+                valeur = int(prix["price"]) / 10 ** int(prix.get("currency_minor_unit", 2))
+                texte = produits.normaliser(titre + " " + str(produit.get("add_to_cart", {}).get("text", "")))
+                if not produit.get("is_in_stock") or not produit.get("is_purchasable"):
+                    dispo = "rupture"
+                elif produits.contient_un(texte, ["precommande", "pre commande", "preco"]):
+                    dispo = "precommande"
+                else:
+                    dispo = "stock"
+                regle = regles.regle_serie(trouve[0], trouve[1], config)
+                offres[produit["id"]] = _nouvelle_offre(boutique, regle, produit["id"], titre,
+                                                        produit["permalink"], valeur, dispo)
+            if len(lot) < 100:
+                break
+    return list(offres.values())
+
+
 def _blocs_jsonld(soupe):
     for balise in soupe.find_all("script", type="application/ld+json"):
         try:
@@ -190,4 +226,6 @@ def lire_pages(boutique, lecteur, config):
 def lire_boutique(boutique, lecteur, config, pages_max=6):
     if boutique["type"] == "shopify":
         return lire_shopify(boutique, lecteur, config, pages_max)
+    if boutique["type"] == "woocommerce":
+        return lire_woocommerce(boutique, lecteur, config, pages_max)
     return lire_pages(boutique, lecteur, config)

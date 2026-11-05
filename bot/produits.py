@@ -4,7 +4,7 @@ import unicodedata
 
 EXCLUS = [
     "protection", "acrylique", "sleeve", "sleeves", "proteges", "protege", "classeur",
-    "portfolio", "album", "vide", "lot", "case", "pack complet", "giga bundle", "duo",
+    "portfolio", "album", "vide", "lot", "case", "pack", "giga bundle", "duo",
     "occasion", "abime", "abimee", "defaut", "artset", "pokemon center", "display de deck",
     "display de decks", "display de bundle", "display de bundles", "display bundle",
     "display tripack", "display de tripack", "display de tripacks", "display mini",
