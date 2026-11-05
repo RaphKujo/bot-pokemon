@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from . import page, regles, sources
+from . import marche, page, produits, regles, sources
 from .discord import Discord
 
 RACINE = Path(__file__).resolve().parent.parent
@@ -33,6 +33,30 @@ def empreinte(etat):
     return json.dumps({"b": etat["boutiques"], "o": etat["offres"]}, sort_keys=True)
 
 
+def cle_offre(offre, config):
+    """Identifie un même produit d'une boutique à l'autre."""
+    cle = f"{offre['suivi_id']}:{offre['type']}"
+    if offre.get("groupe"):
+        serie = next((s for s in config["series"] if s["id"] == offre["suivi_id"]), None)
+        if serie:
+            cle += ":" + produits.mot_serie(offre["titre"], serie)
+    return cle
+
+
+def contexte_offre(offre, etat):
+    """Rassemble ce qui aide à juger une offre : prix ailleurs et plus bas relevé."""
+    memes = [o for o in etat["offres"].values() if o.get("cle") == offre["cle"]]
+    meilleures = {}
+    for autre in memes:
+        if autre["boutique"] != offre["boutique"] and autre["dispo"] in regles.DISPONIBLE:
+            actuelle = meilleures.get(autre["boutique"])
+            if not actuelle or autre["compare"] < actuelle["compare"]:
+                meilleures[autre["boutique"]] = autre
+    minima = [o["prix_min"] for o in memes if o.get("prix_min")]
+    return {"autres": sorted(meilleures.values(), key=lambda o: o["compare"]),
+            "plus_bas": min(minima) if minima else None}
+
+
 def traiter_offres(etat, boutique, offres, config, maintenant):
     """Met à jour les offres d'une boutique lue avec succès et renvoie les alertes."""
     info = etat["boutiques"].setdefault(boutique["id"], {})
@@ -43,6 +67,10 @@ def traiter_offres(etat, boutique, offres, config, maintenant):
         vues.add(offre["id"])
         ancienne = etat["offres"].get(offre["id"])
         offre["compare"] = regles.prix_compare(offre, config)
+        offre["cle"] = cle_offre(offre, config)
+        dispo = offre["dispo"] in regles.DISPONIBLE
+        minima = [p for p in ((ancienne or {}).get("prix_min"), offre["prix"] if dispo else None) if p]
+        offre["prix_min"] = min(minima) if minima else None
         offre["alertable"] = regles.est_alertable(offre, config)
         motif = regles.motif_alerte(offre, ancienne, connue, config, maintenant)
         for cle in ("derniere_alerte", "prix_alerte"):
@@ -126,7 +154,7 @@ def executer(racine, discord, maintenant=None):
 
     # Si Discord échoue, rien n'est enregistré : le passage suivant renverra l'alerte.
     if alertes:
-        discord.alertes(alertes)
+        discord.alertes([(o, m, contexte_offre(o, etat)) for o, m in alertes])
     for message in messages:
         discord.message(message)
 
@@ -160,6 +188,14 @@ def diagnostic(racine, discord):
             lignes.append(f"🟢 {boutique['nom']} : lisible, {len(offres)} offres suivies")
         except (sources.Bloque, sources.Echec) as erreur:
             lignes.append(f"🔴 {boutique['nom']} : {erreur}")
+    try:
+        cotes = marche.charger()
+        lignes.append(f"🟢 Cardmarket : {len(cotes)} produits scellés")
+        exemples = [c for c in cotes if "Evolving Skies" in c["nom"] or "Delta Reign" in c["nom"]]
+        for cote in exemples[:30]:
+            print(cote)
+    except Exception as erreur:
+        lignes.append(f"🔴 Cardmarket : {type(erreur).__name__}")
     texte = "\n".join(lignes)
     print(texte)
     discord.message(texte)
@@ -172,7 +208,8 @@ def principal():
     webhook = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
     if not webhook:
         sys.exit("Secret DISCORD_WEBHOOK_URL manquant : ajoute-le dans les réglages du dépôt GitHub.")
-    discord = Discord(webhook)
+    config = charger_yaml(RACINE / "config" / "surveillance.yaml")
+    discord = Discord(webhook, page_suivi=config.get("page_suivi"))
     if args.diagnostic:
         diagnostic(RACINE, discord)
     else:

@@ -143,7 +143,7 @@ def test_mode_stock_silencieux_au_premier_passage():
 def test_analyse_page_jsonld():
     html = '''<script type="application/ld+json">{"@graph":[{"@type":"Product","name":"ETB",
     "offers":{"@type":"Offer","price":"59.99","availability":"https://schema.org/PreOrder"}}]}</script>'''
-    assert sources.analyser_page(html) == ("ETB", "59.99", "precommande")
+    assert sources.analyser_page(html) == ("ETB", "59.99", "precommande", None)
 
 
 def test_page_sans_prix_est_une_erreur():
@@ -152,9 +152,53 @@ def test_page_sans_prix_est_une_erreur():
 
 
 def test_message_discord_lisible():
-    message = embed(offre(), "retour")
+    autre = offre(boutique_nom="LorenZone", prix=74.9, total=81.8, url="https://y.fr/2")
+    message = embed(offre(image="https://x.fr/i.png"), "retour", {"autres": [autre], "plus_bas": 50.0}, "https://p.fr/")
     assert "ETB Règne Delta" in message["title"]
-    assert any(c["value"] == "55,99 €" for c in message["fields"])
+    assert message["description"].startswith("**Bon prix**")
+    assert message["thumbnail"]["url"] == "https://x.fr/i.png"
+    valeurs = {c["name"]: c["value"] for c in message["fields"]}
+    assert valeurs["Prix de base"] == "55,99 €" and valeurs["Total"] == "62,89 €"
+    assert valeurs["Plus bas relevé"] == "50,00 €" and valeurs["Par booster"] == "environ 6,22 €"
+    assert "LorenZone" in valeurs["Ailleurs"] and "cardmarket.com" in valeurs["Liens"]
+    assert len(message["fields"]) <= 25
+
+
+@pytest.mark.parametrize("modif,autres,avis", [
+    ({"compare": 56.0}, [], "Excellent prix"),
+    ({"compare": 62.0}, [], "Bon prix"),
+    ({"compare": 80.0}, [], "Prix élevé"),
+    ({"compare": 62.0, "base": 60.0}, [{"compare": 59.0}], "Excellent prix, mais moins cher ailleurs"),
+    ({"compare": 400.0, "base": None}, [], "Seule offre trouvée"),
+    ({"compare": 400.0, "base": None}, [{"compare": 380.0}], "Une autre boutique est moins chère"),
+    ({"compare": 400.0, "base": None}, [{"compare": 420.0}], "Le moins cher trouvé"),
+])
+def test_verdict(modif, autres, avis):
+    assert regles.verdict({**offre(), **modif}, autres)[0] == avis
+
+
+def test_contexte_compare_les_boutiques():
+    etat = {"offres": {
+        "a": {"cle": "x", "boutique": "a", "boutique_nom": "A", "dispo": "stock", "compare": 60, "prix": 60, "prix_min": 58},
+        "b": {"cle": "x", "boutique": "b", "boutique_nom": "B", "dispo": "stock", "compare": 50, "prix": 50, "prix_min": 50},
+        "c": {"cle": "x", "boutique": "c", "boutique_nom": "C", "dispo": "rupture", "compare": 40, "prix": 40, "prix_min": 39},
+        "d": {"cle": "y", "boutique": "d", "boutique_nom": "D", "dispo": "stock", "compare": 10, "prix": 10, "prix_min": 10},
+    }}
+    contexte = main.contexte_offre(etat["offres"]["a"], etat)
+    assert [o["boutique"] for o in contexte["autres"]] == ["b"] and contexte["plus_bas"] == 39
+
+
+def test_cle_serie_groupee():
+    serie = next(s for s in SERIES if s["id"] == "anciennes")
+    o = {**regles.regle_serie(serie, "display", CONFIG), "titre": "Display EB08 - Poing de Fusion [FR]"}
+    assert main.cle_offre(o, CONFIG) == "anciennes:display:poing de fusion"
+
+
+def test_assemblage_cotes():
+    from bot import marche
+    cotes = marche.assembler({"products": [{"idProduct": 1, "name": "Evolving Skies Booster Box"}]},
+                             {"priceGuides": [{"idProduct": 1, "trend": 900.0, "avg30": 880.0, "low": 800.0}]})
+    assert cotes == [{"id": 1, "nom": "Evolving Skies Booster Box", "trend": 900.0, "avg30": 880.0, "low": 800.0}]
 
 
 def test_ancienne_serie_alerte_sans_plafond():

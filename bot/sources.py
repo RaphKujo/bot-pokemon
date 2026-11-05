@@ -62,7 +62,7 @@ class Lecteur:
         return reponse
 
 
-def _nouvelle_offre(boutique, regle, identifiant, titre, url, prix, dispo):
+def _nouvelle_offre(boutique, regle, identifiant, titre, url, prix, dispo, image=None):
     prix = round(float(prix), 2)
     franco = boutique.get("franco")
     port = 0.0 if franco is not None and prix >= franco else float(boutique.get("port", 0))
@@ -71,6 +71,7 @@ def _nouvelle_offre(boutique, regle, identifiant, titre, url, prix, dispo):
         "boutique_nom": boutique["nom"], "titre": titre, "url": url,
         "prix": prix, "port": port, "total": round(prix + port, 2), "dispo": dispo,
         "note": boutique.get("note_precommande") if dispo == "precommande" else None,
+        "image": image if str(image or "").startswith("https://") else None,
         **regle,
     }
 
@@ -130,8 +131,11 @@ def lire_shopify(boutique, lecteur, config, pages_max=6):
             else:
                 dispo = "precommande" if _est_precommande(produit, variante) else "stock"
             url = f"{boutique['url'].rstrip('/')}/products/{produit['handle']}?variant={variante['id']}"
+            image = (variante.get("featured_image") or {}).get("src")
+            if not image and produit.get("images"):
+                image = produit["images"][0].get("src")
             offres.append(_nouvelle_offre(boutique, regle, variante["id"], titre, url,
-                                          variante["price"], dispo))
+                                          variante["price"], dispo, image))
     return offres
 
 
@@ -163,8 +167,9 @@ def lire_woocommerce(boutique, lecteur, config, pages_max=6):
                 else:
                     dispo = "stock"
                 regle = regles.regle_serie(trouve[0], trouve[1], config)
-                offres[produit["id"]] = _nouvelle_offre(boutique, regle, produit["id"], titre,
-                                                        produit["permalink"], valeur, dispo)
+                images = produit.get("images") or [{}]
+                offres[produit["id"]] = _nouvelle_offre(boutique, regle, produit["id"], titre, produit["permalink"],
+                                                        valeur, dispo, images[0].get("src"))
             if len(lot) < 100:
                 break
     return list(offres.values())
@@ -208,7 +213,9 @@ def analyser_page(html):
             dispo = "stock"
         else:
             dispo = "rupture"
-        return bloc.get("name"), str(prix).replace(",", "."), dispo
+        image = bloc.get("image")
+        image = image[0] if isinstance(image, list) and image else image
+        return bloc.get("name"), str(prix).replace(",", "."), dispo, image if isinstance(image, str) else None
     raise Echec("prix introuvable sur la page")
 
 
@@ -217,9 +224,9 @@ def lire_pages(boutique, lecteur, config):
     offres = []
     for page in boutique.get("pages") or []:
         regle = regles.regle_serie(series[page["serie"]], page["type"], config)
-        titre, prix, dispo = analyser_page(lecteur.lire(page["url"]).text)
+        titre, prix, dispo, image = analyser_page(lecteur.lire(page["url"]).text)
         titre = titre or f"{regle['type']} {regle['suivi_nom']}"
-        offres.append(_nouvelle_offre(boutique, regle, page["url"], titre, page["url"], prix, dispo))
+        offres.append(_nouvelle_offre(boutique, regle, page["url"], titre, page["url"], prix, dispo, image))
     return offres
 
 

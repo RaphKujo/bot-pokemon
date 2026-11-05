@@ -27,7 +27,7 @@ boutiques:
     nom: Le Coin des Barons
     type: woocommerce
     url: https://lecoindesbarons.com
-    categories: [display-pokemon, coffret-dresseur-delite, tripack-pokemon, booster-pokemon, coffrets-pokemon, pokebox-pokemon]
+    categories: [display-pokemon, coffret-dresseur-delite, bundle-pokemon, tripack-pokemon, booster-pokemon, coffrets-pokemon, pokebox-pokemon, anniversaire-pokemon]
     port: 6.90
 
   # Boutiques lues page par page : colle ici l'adresse de chaque produit à suivre.

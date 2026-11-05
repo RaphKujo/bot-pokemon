@@ -4,6 +4,7 @@
 # mode: stock -> alerte dès le retour en stock, sauf si un prix_max est dépassé.
 # priorite: haute -> l'alerte Discord mentionne @everyone.
 
+page_suivi: https://raphkujo.github.io/bot-pokemon/
 seuil_pct: 15             # marge autorisée au-dessus du prix de base
 baisse_min_pct: 5         # nouvelle alerte si le prix baisse d'au moins 5 %
 anti_rebond_minutes: 60   # évite les alertes en boucle quand un stock clignote

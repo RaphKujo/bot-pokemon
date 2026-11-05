@@ -74,6 +74,12 @@ def serie_du_titre(titre, series):
     return None
 
 
+def mot_serie(titre, serie):
+    """Renvoie le nom de série trouvé dans le titre."""
+    t = normaliser(titre)
+    return next((m for m in serie["mots"] if contient(t, m)), "")
+
+
 def reconnaitre(titre, series):
     """Renvoie (serie, type) pour un scellé français suivi, sinon None."""
     if est_etranger(titre) or est_exclu(titre):
