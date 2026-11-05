@@ -189,7 +189,7 @@ def generer(etat, config, boutiques, maj):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>{CSS}</style></head>
-<body><main><h1>{titre}</h1>
+<body><main><p class="maj"><a href="classeur.html">Ouvrir mon classeur</a></p><h1>{titre}</h1>
 <p class="maj">Prix mis à jour le {escape(maj)}. Livraison estimée incluse sur les gros produits.</p>
 {bloc}{sections}
 <section><h2>Boutiques</h2><dl class="boutiques">{etat_boutiques}</dl></section>

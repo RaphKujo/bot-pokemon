@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classeur Pokémon FR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Mise en page : une page de classeur, chaque carte occupe une pochette. */
+:root{--fond:#e9ecfa;--pochette:#f9faff;--encre:#1c1f52;--doux:#555a8c;--trait:#cfd4ef;--bon:#0a7458;--cher:#ad1e4c;--champ:#fff;
+--foil:linear-gradient(100deg,#6fdcc8,#a5b4ff,#f0a3df,#ffd68a,#6fdcc8);
+--titre:"Bricolage Grotesque",system-ui,sans-serif;--texte:"Instrument Sans",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--fond:#14163a;--pochette:#1d2050;--encre:#eef0ff;--doux:#aeb3dd;--trait:#363a78;--bon:#58d6b1;--cher:#ff8fb1;--champ:#14163a;color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.5 var(--texte);font-variant-numeric:tabular-nums}
+main{max-width:1080px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-left,0px)) 64px;display:grid;gap:26px}
+h1,h2{font-family:var(--titre);margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(2.2rem,7vw,4.2rem);font-weight:800;letter-spacing:-.03em}
+h2{font-size:1.45rem;font-weight:700}
+p{margin:0}
+a{color:inherit;text-underline-offset:3px}
+.bilan{display:grid;gap:8px}
+.chiffres{display:flex;flex-wrap:wrap;gap:6px 24px;color:var(--doux)}
+.chiffres b{color:var(--encre)}.chiffres b.bon{color:var(--bon)}.chiffres b.cher{color:var(--cher)}
+.etat{color:var(--doux);font-size:.92rem}
+.etat.erreur{color:var(--cher)}
+input,select,button{font:inherit;color:var(--encre)}
+input,select{background:var(--champ);border:1px solid var(--trait);border-radius:8px;padding:9px 11px;width:100%;min-width:0}
+button{cursor:pointer;border:1px solid var(--trait);background:transparent;border-radius:8px;padding:9px 14px;font-weight:600}
+button.principal{background:var(--encre);color:var(--fond);border-color:var(--encre)}
+button.danger{color:var(--cher);border-color:var(--cher)}
+button:disabled{opacity:.55;cursor:default}
+:focus-visible{outline:3px solid var(--doux);outline-offset:2px}
+.outils{display:grid;grid-template-columns:1fr auto;gap:10px}
+.resultats,.page{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:14px}
+.pochette{all:unset;box-sizing:border-box;cursor:pointer;background:var(--pochette);border-radius:12px;padding:9px;display:grid;gap:3px;align-content:start;min-width:0}
+.pochette:focus-visible{outline:3px solid var(--doux);outline-offset:2px}
+.visuel{aspect-ratio:245/337;width:100%;border-radius:4.5%/3.3%;object-fit:cover;background:var(--trait);display:block}
+.sans-visuel{display:grid;place-items:center;text-align:center;color:var(--doux);font-size:.85rem;padding:12px}
+.nom{font-weight:700;line-height:1.2;margin-top:6px;overflow-wrap:anywhere}
+.serie{color:var(--doux);font-size:.86rem}
+.cote{font-family:var(--titre);font-weight:700;font-size:1.3rem;margin-top:4px}
+.cote.absente{font-family:var(--texte);font-size:.92rem;font-weight:500;color:var(--doux)}
+.ecart{font-size:.88rem;font-weight:600}.ecart.bon{color:var(--bon)}.ecart.cher{color:var(--cher)}
+.gain .visuel{box-shadow:0 0 0 3px transparent;background-clip:padding-box}
+.feuille{background:var(--pochette);border-radius:14px;padding:20px;display:grid;gap:16px}
+.fiche{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:22px;align-items:start}
+.fiche>div{display:grid;gap:14px;min-width:0}
+.cadre{padding:5px;border-radius:5.5%/4%;background:var(--foil)}
+.cadre .visuel{border-radius:4.5%/3.3%}
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+label{display:grid;gap:4px;font-weight:600;font-size:.92rem;min-width:0}
+.aide{color:var(--doux);font-size:.92rem}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.courbe{width:100%;height:96px;display:block;color:var(--encre)}
+.courbe text{fill:var(--doux);font-size:11px}
+ol.etapes{margin:0;padding-left:20px;display:grid;gap:8px;max-width:62ch}
+nav{color:var(--doux);font-size:.95rem}
+@media (max-width:640px){.fiche{grid-template-columns:1fr}.fiche>.cadre{max-width:240px}.outils{grid-template-columns:1fr}
+.resultats,.page{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+@media (prefers-reduced-motion:no-preference){.cadre{background-size:200% 100%;animation:reflet 7s linear infinite}@keyframes reflet{to{background-position:200% 0}}}
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="./">Voir les prix et les alertes</a></nav>
+
+  <section class="feuille" id="connexion" hidden>
+    <h1>Relie ton classeur</h1>
+    <p>Tes cartes sont enregistrées dans un espace privé de ton compte GitHub, pour les retrouver sur tous tes appareils. Fais-le une seule fois par appareil.</p>
+    <ol class="etapes">
+      <li><a id="lienJeton" target="_blank" rel="noopener">Crée ta clé d'accès sur GitHub</a>. La case gist est déjà cochée. Choisis une durée, par exemple 1 an, puis clique sur Generate token.</li>
+      <li>Copie la clé affichée et colle-la ci-dessous.</li>
+    </ol>
+    <form id="formConnexion" class="grille">
+      <label>Clé d'accès GitHub<input id="jeton" type="password" autocomplete="off" required></label>
+      <div class="actions" style="align-self:end"><button class="principal" type="submit">Ouvrir mon classeur</button></div>
+    </form>
+    <p class="etat erreur" id="erreurConnexion" hidden></p>
+  </section>
+
+  <div id="app" hidden style="display:grid;gap:26px">
+    <section class="bilan" aria-live="polite">
+      <h1 id="valeur">Ta collection</h1>
+      <p class="chiffres" id="chiffres"></p>
+      <p class="etat" id="etat"></p>
+    </section>
+
+    <section class="feuille">
+      <h2>Ajouter une carte</h2>
+      <label>Nom, série ou numéro<input id="recherche" type="search" autocomplete="off" placeholder="Électhor 151 192"></label>
+      <p class="aide" id="aideRecherche">Le visuel et la cote s'affichent dès que tu choisis ta carte.</p>
+      <div class="resultats" id="resultats"></div>
+    </section>
+
+    <section class="feuille" id="zoneFiche" hidden>
+      <div class="fiche">
+        <div class="cadre"><img class="visuel" id="ficheVisuel" alt=""></div>
+        <div>
+          <h2 id="ficheNom"></h2>
+          <p class="aide" id="ficheSerie"></p>
+          <p class="cote" id="ficheCote"></p>
+          <p class="aide" id="ficheSource"></p>
+          <div id="ficheCourbe"></div>
+          <form id="formFiche" class="grille">
+            <label>Version<select id="variante"><option>Normale</option><option>Reverse</option></select></label>
+            <label>État<select id="etatCarte"><option>Mint</option><option selected>Near Mint</option><option>Excellent</option><option>Good</option><option>Light Played</option><option>Played</option><option>Poor</option></select></label>
+            <label>Gradation<input id="gradation" autocomplete="off" placeholder="PSA 10"></label>
+            <label>Quantité<input id="quantite" type="number" min="1" step="1" value="1" required></label>
+            <label>Prix d'achat (€)<input id="achat" type="number" min="0" step="0.01" inputmode="decimal"></label>
+            <label>Date d'achat<input id="dateAchat" type="date"></label>
+            <label>Ma cote, si différente (€)<input id="cotePerso" type="number" min="0" step="0.01" inputmode="decimal"></label>
+          </form>
+          <div class="actions">
+            <button class="principal" type="submit" form="formFiche" id="enregistrer">Ajouter au classeur</button>
+            <button type="button" id="fermer">Annuler</button>
+            <button type="button" class="danger" id="supprimer" hidden>Retirer du classeur</button>
+            <a id="lienMarche" target="_blank" rel="noopener">Voir sur Cardmarket</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;gap:14px">
+      <div class="outils">
+        <input id="filtre" type="search" placeholder="Chercher dans mon classeur" aria-label="Chercher dans mon classeur">
+        <select id="tri" aria-label="Trier les cartes" style="width:auto">
+          <option value="valeur">Valeur la plus haute</option><option value="gain">Meilleure plus-value</option>
+          <option value="nom">Nom</option><option value="serie">Série</option><option value="ajout">Ajout le plus récent</option>
+        </select>
+      </div>
+      <div class="page" id="page" aria-label="Cartes de la collection"></div>
+    </section>
+  </div>
+</main>
+
+<script>
+"use strict";
+const API = "https://api.tcgdex.net/v2/fr", GITHUB = "https://api.github.com", FICHIER = "classeur-pokemon.json";
+const DELAI_COTE = 12 * 3600 * 1000;
+const $ = id => document.getElementById(id);
+const euros = n => n.toLocaleString("fr-FR", {style: "currency", currency: "EUR"});
+const jour = () => new Date().toISOString().slice(0, 10);
+const dateFr = d => d.slice(0, 10).split("-").reverse().join("/");
+const nombre = v => v === "" || v == null ? null : Number(v);
+const lire = c => { try { return localStorage.getItem(c); } catch { return null; } };
+const ecrire = (c, v) => { try { v == null ? localStorage.removeItem(c) : localStorage.setItem(c, v); } catch {} };
+const normaliser = t => (t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+let jeton = lire("classeur.jeton"), gistId = lire("classeur.gist");
+let donnees = {version: 1, cartes: []}, catalogue = null, series = {}, ouverte = null, confirmation = false;
+
+/* ---- Enregistrement dans un gist secret ---- */
+async function gh(chemin, options = {}) {
+  const r = await fetch(GITHUB + chemin, {...options, headers: {Authorization: "Bearer " + jeton, Accept: "application/vnd.github+json", ...(options.body ? {"Content-Type": "application/json"} : {})}});
+  if (r.status === 401) throw new Error("cle");
+  if (!r.ok) throw new Error("github " + r.status);
+  return r.json();
+}
+async function lireGist(id) {
+  const g = await gh("/gists/" + id), f = g.files[FICHIER];
+  if (!f) throw new Error("gist");
+  return JSON.parse(f.truncated ? await (await fetch(f.raw_url)).text() : f.content);
+}
+async function ouvrirGist() {
+  if (gistId) { try { return await lireGist(gistId); } catch (e) { if (e.message === "cle") throw e; gistId = null; } }
+  for (let p = 1; p <= 5 && !gistId; p++) {
+    const liste = await gh(`/gists?per_page=100&page=${p}`);
+    const trouve = liste.find(g => g.files[FICHIER]);
+    if (trouve) gistId = trouve.id;
+    if (liste.length < 100) break;
+  }
+  if (gistId) { ecrire("classeur.gist", gistId); return lireGist(gistId); }
+  const cree = await gh("/gists", {method: "POST", body: JSON.stringify({description: "Classeur Pokémon", public: false, files: {[FICHIER]: {content: JSON.stringify(donnees)}}})});
+  gistId = cree.id; ecrire("classeur.gist", gistId);
+  return donnees;
+}
+async function sauvegarder() {
+  ecrire("classeur.copie", JSON.stringify(donnees));
+  try {
+    await gh("/gists/" + gistId, {method: "PATCH", body: JSON.stringify({files: {[FICHIER]: {content: JSON.stringify(donnees, null, 1)}}})});
+    annoncer("Enregistré.");
+    return true;
+  } catch (e) {
+    annoncer("Cette modification n'est enregistrée que sur cet appareil pour le moment. Vérifie ta connexion.", true);
+    return false;
+  }
+}
+
+/* ---- Cartes et cotes ---- */
+function coteDepuis(carte, variante) {
+  const cm = carte.pricing && carte.pricing.cardmarket;
+  if (!cm) return null;
+  const suffixe = variante === "Reverse" ? "-holo" : "";
+  for (const cle of ["trend", "avg30", "avg7", "avg1", "avg", "low"]) {
+    const v = cm[cle + suffixe];
+    if (typeof v === "number" && v > 0) return {valeur: v, maj: cm.updated};
+  }
+  return null;
+}
+const coteDe = c => c.cotePerso != null ? c.cotePerso : (c.cotes && c.cotes.length ? c.cotes[c.cotes.length - 1].valeur : null);
+const valeurDe = c => { const v = coteDe(c); return v == null ? null : v * (c.quantite || 1); };
+const gainDe = c => { const v = coteDe(c); return v == null || c.achat == null ? null : (v - c.achat) * (c.quantite || 1); };
+const visuelDe = (image, taille) => image ? `${image}/${taille}.webp` : null;
+const carteDe = async id => { const r = await fetch(`${API}/cards/${encodeURIComponent(id)}`); if (!r.ok) throw new Error("tcgdex"); return r.json(); };
+
+async function actualiserCotes() {
+  const maintenant = Date.now();
+  const lot = donnees.cartes.filter(c => c.cardId && maintenant - (c.verif || 0) > DELAI_COTE);
+  if (!lot.length) return;
+  annoncer(`Mise à jour de ${lot.length} cote${lot.length > 1 ? "s" : ""}.`);
+  let change = false, echecs = 0;
+  for (let i = 0; i < lot.length; i += 4) {
+    await Promise.all(lot.slice(i, i + 4).map(async c => {
+      try {
+        const cote = coteDepuis(await carteDe(c.cardId), c.variante);
+        c.verif = maintenant; change = true;
+        if (cote) ajouterCote(c, cote.valeur);
+      } catch { echecs++; }
+    }));
+  }
+  afficher();
+  if (change) await sauvegarder();
+  annoncer(echecs ? `${echecs} cote(s) n'ont pas pu être mises à jour.` : "Cotes à jour.", echecs > 0);
+}
+function ajouterCote(c, valeur) {
+  c.cotes = c.cotes || [];
+  const d = c.cotes[c.cotes.length - 1];
+  if (d && d.date === jour()) d.valeur = valeur;
+  else if (!d || d.valeur !== valeur) c.cotes.push({date: jour(), valeur});
+}
+
+/* ---- Recherche dans le catalogue français ---- */
+async function chargerCatalogue() {
+  if (catalogue) return;
+  const [cartes, sets] = await Promise.all([fetch(API + "/cards").then(r => r.json()), fetch(API + "/sets").then(r => r.json())]);
+  for (const s of sets) series[s.id] = s.name;
+  catalogue = cartes.map(c => {
+    const set = c.id.slice(0, c.id.lastIndexOf("-"));
+    return {...c, set, nomN: normaliser(c.name), serieN: normaliser(series[set]), numero: String(c.localId).replace(/^0+(?=\d)/, "")};
+  });
+}
+function ressemblance(a, b) {
+  const paires = t => { const s = []; for (let i = 0; i < t.length - 1; i++) s.push(t.slice(i, i + 2)); return s; };
+  const pa = paires(a), pb = paires(b);
+  if (!pa.length || !pb.length) return 0;
+  let communs = 0; const reste = [...pb];
+  for (const p of pa) { const i = reste.indexOf(p); if (i >= 0) { communs++; reste.splice(i, 1); } }
+  return 2 * communs / (pa.length + pb.length);
+}
+function chercher(texte) {
+  const mots = normaliser(texte).split(" ").filter(Boolean);
+  if (!mots.length) return [];
+  const resultats = [];
+  for (const c of catalogue) {
+    let score = 0, ok = true;
+    for (const m of mots) {
+      const num = m.replace(/^0+(?=\d)/, "");
+      if (/^\d+$/.test(m)) {
+        if (c.numero === num) score += 3;
+        else if (c.serieN.split(" ").includes(m)) score += 2;
+        else { ok = false; break; }
+      } else if (c.nomN.includes(m)) score += 3;
+      else if (c.serieN.includes(m)) score += 2;
+      else {
+        const proche = Math.max(0, ...c.nomN.split(" ").map(n => ressemblance(m, n)));
+        if (m.length >= 4 && proche >= .6) score += proche; else { ok = false; break; }
+      }
+    }
+    if (ok) resultats.push({c, score: score + (c.image ? .5 : 0)});
+  }
+  return resultats.sort((a, b) => b.score - a.score).slice(0, 30).map(r => r.c);
+}
+let minuteur = null;
+function surRecherche() {
+  clearTimeout(minuteur);
+  minuteur = setTimeout(async () => {
+    const texte = $("recherche").value, zone = $("resultats");
+    if (normaliser(texte).length < 2) { zone.replaceChildren(); return; }
+    try { await chargerCatalogue(); }
+    catch { $("aideRecherche").textContent = "Le catalogue de cartes ne répond pas. Réessaie dans un instant."; return; }
+    const liste = chercher(texte);
+    $("aideRecherche").textContent = liste.length ? "Choisis ta carte." : "Aucune carte trouvée. Essaie avec le nom et le numéro, par exemple Électhor 192.";
+    zone.replaceChildren(...liste.map(c => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "pochette";
+      b.append(creerVisuel(c.image, "low", c.name), bloc("nom", c.name), bloc("serie", `${series[c.set] || c.set}, n° ${c.localId}`));
+      b.addEventListener("click", () => choisir(c.id));
+      return b;
+    }));
+  }, 250);
+}
+
+/* ---- Affichage ---- */
+function bloc(classe, texte) { const d = document.createElement("div"); d.className = classe; d.textContent = texte; return d; }
+function creerVisuel(image, taille, nom) {
+  const url = visuelDe(image, taille);
+  if (!url) { const d = bloc("visuel sans-visuel", "Visuel pas encore disponible"); return d; }
+  const i = document.createElement("img"); i.className = "visuel"; i.src = url; i.alt = nom; i.loading = "lazy";
+  return i;
+}
+function annoncer(texte, erreur = false) { $("etat").textContent = texte; $("etat").className = "etat" + (erreur ? " erreur" : ""); }
+function afficherBilan() {
+  const cartes = donnees.cartes, total = cartes.reduce((s, c) => s + (valeurDe(c) || 0), 0);
+  const paye = cartes.reduce((s, c) => s + (c.achat || 0) * (c.quantite || 1), 0);
+  const gain = cartes.reduce((s, c) => s + (gainDe(c) || 0), 0);
+  $("valeur").textContent = cartes.length ? `Ta collection vaut ${euros(total)}` : "Ton classeur est vide";
+  const z = $("chiffres"); z.replaceChildren();
+  if (!cartes.length) { z.textContent = "Cherche ta première carte ci-dessous."; return; }
+  const ajouter = (l, v, t) => { const s = document.createElement("span"), b = document.createElement("b"); s.append(l + " "); b.textContent = v; if (t) b.className = t; s.append(b); z.append(s); };
+  ajouter("Cartes :", String(cartes.reduce((s, c) => s + (c.quantite || 1), 0)));
+  ajouter("Payé :", euros(paye));
+  ajouter("Plus-value :", (gain >= 0 ? "+" : "") + euros(gain), gain >= 0 ? "bon" : "cher");
+  const sans = cartes.filter(c => coteDe(c) == null).length;
+  if (sans) ajouter("Sans cote :", String(sans));
+}
+function afficherPage() {
+  const q = normaliser($("filtre").value);
+  const liste = donnees.cartes.filter(c => !q || normaliser([c.nom, c.serie, c.numero, c.gradation].join(" ")).includes(q));
+  const tri = {
+    valeur: (a, b) => (valeurDe(b) ?? -1) - (valeurDe(a) ?? -1),
+    gain: (a, b) => (gainDe(b) ?? -Infinity) - (gainDe(a) ?? -Infinity),
+    nom: (a, b) => a.nom.localeCompare(b.nom, "fr"),
+    serie: (a, b) => (a.serie || "").localeCompare(b.serie || "", "fr"),
+    ajout: (a, b) => (b.ajoute || "").localeCompare(a.ajoute || ""),
+  }[$("tri").value];
+  $("page").replaceChildren(...[...liste].sort(tri).map(c => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "pochette";
+    const g = gainDe(c), v = coteDe(c);
+    b.append(creerVisuel(c.image, "low", c.nom), bloc("nom", (c.quantite > 1 ? c.quantite + " × " : "") + c.nom),
+      bloc("serie", [c.serie, c.numero && "n° " + c.numero, c.gradation || c.etat].filter(Boolean).join(", ")),
+      bloc("cote" + (v == null ? " absente" : ""), v == null ? "Pas encore de cote" : euros(v)));
+    if (g != null) b.append(bloc("ecart " + (g >= 0 ? "bon" : "cher"), (g >= 0 ? "+" : "") + euros(g)));
+    b.addEventListener("click", () => ouvrir(c.uid));
+    return b;
+  }));
+}
+function afficher() { afficherBilan(); afficherPage(); }
+
+function courbe(cotes) {
+  const z = $("ficheCourbe"); z.replaceChildren();
+  if (!cotes || cotes.length < 2) return;
+  const L = 600, H = 96, m = 8, vals = cotes.map(c => c.valeur), min = Math.min(...vals), et = (Math.max(...vals) - min) || 1;
+  const pts = vals.map((v, i) => [m + i * (L - 2 * m) / (vals.length - 1), H - 20 - (v - min) / et * (H - 36)]);
+  const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", `0 0 ${L} ${H}`); svg.setAttribute("class", "courbe"); svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", `Cote passée de ${euros(vals[0])} à ${euros(vals[vals.length - 1])}`);
+  const l = document.createElementNS(ns, "polyline"); l.setAttribute("points", pts.map(p => p.join(",")).join(" "));
+  l.setAttribute("fill", "none"); l.setAttribute("stroke", "currentColor"); l.setAttribute("stroke-width", "2.5");
+  const f = pts[pts.length - 1], d = document.createElementNS(ns, "circle");
+  d.setAttribute("cx", f[0]); d.setAttribute("cy", f[1]); d.setAttribute("r", "4.5"); d.setAttribute("fill", "currentColor");
+  const t1 = document.createElementNS(ns, "text"); t1.setAttribute("x", m); t1.setAttribute("y", H - 3); t1.textContent = dateFr(cotes[0].date);
+  const t2 = document.createElementNS(ns, "text"); t2.setAttribute("x", L - m); t2.setAttribute("y", H - 3); t2.setAttribute("text-anchor", "end"); t2.textContent = dateFr(cotes[cotes.length - 1].date);
+  svg.append(l, d, t1, t2); z.append(svg);
+}
+function remplirFiche(f) {
+  $("zoneFiche").hidden = false;
+  const url = visuelDe(f.image, "high");
+  $("ficheVisuel").hidden = !url; if (url) { $("ficheVisuel").src = url; $("ficheVisuel").alt = f.nom; }
+  $("ficheNom").textContent = f.nom;
+  $("ficheSerie").textContent = [f.serie, f.numero && "n° " + f.numero, f.rarete].filter(Boolean).join(", ");
+  const ids = {variante: "Normale", etatCarte: "Near Mint", gradation: "", quantite: 1, achat: "", dateAchat: "", cotePerso: ""};
+  for (const k in ids) $(k).value = f[k === "etatCarte" ? "etat" : k] ?? ids[k];
+  $("lienMarche").href = "https://www.cardmarket.com/fr/Pokemon/Products/Search?searchString=" + encodeURIComponent(f.nom);
+  $("supprimer").hidden = !f.uid; $("supprimer").textContent = "Retirer du classeur"; confirmation = false;
+  $("enregistrer").textContent = f.uid ? "Enregistrer" : "Ajouter au classeur";
+  courbe(f.cotes);
+  majCoteFiche();
+  $("zoneFiche").scrollIntoView({block: "nearest"});
+}
+function majCoteFiche() {
+  const f = ouverte; if (!f) return;
+  const auto = f.brute ? coteDepuis(f.brute, $("variante").value) : null;
+  const perso = nombre($("cotePerso").value);
+  const valeur = perso ?? (auto ? auto.valeur : (f.cotes && f.cotes.length ? f.cotes[f.cotes.length - 1].valeur : null));
+  $("ficheCote").textContent = valeur == null ? "Pas encore de cote" : euros(valeur);
+  $("ficheCote").className = "cote" + (valeur == null ? " absente" : "");
+  if (perso != null) $("ficheSource").textContent = "Ta cote personnelle.";
+  else if (auto) $("ficheSource").textContent = `Tendance Cardmarket du ${dateFr(auto.maj)}. C'est une estimation : elle ne tient compte ni de la langue, ni de l'état, ni de la gradation.`;
+  else if (valeur != null) $("ficheSource").textContent = "Dernière cote connue.";
+  else $("ficheSource").textContent = "Cardmarket n'a pas de prix pour cette carte. Tu peux saisir ta propre cote.";
+}
+async function choisir(id) {
+  $("aideRecherche").textContent = "Récupération de la carte.";
+  try {
+    const b = await carteDe(id);
+    ouverte = {cardId: b.id, nom: b.name, serie: b.set && b.set.name, numero: b.localId, rarete: b.rarity, image: b.image, brute: b, cotes: []};
+    remplirFiche(ouverte);
+    $("aideRecherche").textContent = "Vérifie la version, puis ajoute la carte.";
+  } catch { $("aideRecherche").textContent = "Cette carte n'a pas pu être récupérée. Réessaie."; }
+}
+async function ouvrir(uid) {
+  const c = donnees.cartes.find(x => x.uid === uid);
+  ouverte = {...c}; remplirFiche(ouverte);
+  if (c.cardId) { try { ouverte.brute = await carteDe(c.cardId); majCoteFiche(); } catch {} }
+}
+function fermer() { $("zoneFiche").hidden = true; ouverte = null; }
+async function enregistrer(e) {
+  e.preventDefault(); if (!ouverte) return;
+  const f = ouverte;
+  const carte = {uid: f.uid || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now())), cardId: f.cardId, nom: f.nom, serie: f.serie, numero: f.numero, rarete: f.rarete, image: f.image,
+    variante: $("variante").value, etat: $("etatCarte").value, gradation: $("gradation").value.trim(), quantite: Math.max(1, Number($("quantite").value) || 1),
+    achat: nombre($("achat").value), dateAchat: $("dateAchat").value, cotePerso: nombre($("cotePerso").value), cotes: f.cotes || [], ajoute: f.ajoute || new Date().toISOString(), verif: Date.now()};
+  const auto = f.brute ? coteDepuis(f.brute, carte.variante) : null;
+  if (auto) ajouterCote(carte, auto.valeur);
+  const i = donnees.cartes.findIndex(c => c.uid === carte.uid);
+  if (i >= 0) donnees.cartes[i] = carte; else donnees.cartes.push(carte);
+  fermer(); $("recherche").value = ""; $("resultats").replaceChildren(); afficher();
+  await sauvegarder();
+}
+async function supprimer() {
+  if (!confirmation) { confirmation = true; $("supprimer").textContent = "Confirmer le retrait"; return; }
+  donnees.cartes = donnees.cartes.filter(c => c.uid !== ouverte.uid);
+  fermer(); afficher(); await sauvegarder();
+}
+
+/* ---- Démarrage ---- */
+async function demarrer() {
+  $("connexion").hidden = true; $("app").hidden = false;
+  const copie = lire("classeur.copie");
+  if (copie) { try { donnees = JSON.parse(copie); } catch {} }
+  afficher(); annoncer("Ouverture de ton classeur.");
+  try {
+    donnees = await ouvrirGist();
+    donnees.cartes = donnees.cartes || [];
+    ecrire("classeur.copie", JSON.stringify(donnees));
+    afficher(); annoncer("");
+    actualiserCotes();
+  } catch (e) {
+    if (e.message === "cle") { ecrire("classeur.jeton", null); jeton = null; montrerConnexion("Cette clé n'est plus valide. Crée-en une nouvelle."); }
+    else annoncer("Ton classeur ne s'ouvre pas. Vérifie ta connexion et recharge la page.", true);
+  }
+}
+function montrerConnexion(message) {
+  $("app").hidden = true; $("connexion").hidden = false;
+  $("lienJeton").href = "https://github.com/settings/tokens/new?scopes=gist&description=" + encodeURIComponent("Classeur Pokémon");
+  $("erreurConnexion").hidden = !message; $("erreurConnexion").textContent = message || "";
+}
+$("formConnexion").addEventListener("submit", e => { e.preventDefault(); jeton = $("jeton").value.trim(); ecrire("classeur.jeton", jeton); $("jeton").value = ""; demarrer(); });
+$("recherche").addEventListener("input", surRecherche);
+$("filtre").addEventListener("input", afficherPage);
+$("tri").addEventListener("change", afficherPage);
+$("variante").addEventListener("change", majCoteFiche);
+$("cotePerso").addEventListener("input", majCoteFiche);
+$("formFiche").addEventListener("submit", enregistrer);
+$("fermer").addEventListener("click", fermer);
+$("supprimer").addEventListener("click", supprimer);
+jeton ? demarrer() : montrerConnexion();
+</script>
+</body>
+</html>

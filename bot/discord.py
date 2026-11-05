@@ -71,6 +71,7 @@ class Discord:
             lot = rang[debut:debut + 10]
             urgent = any(o["priorite"] == "haute" for o, _ in lot)
             self._poster({
+                "username": "Bot Pokémon",
                 "content": "@everyone Série prioritaire disponible" if urgent else "Offre à regarder",
                 "embeds": [embed(o, m) for o, m in lot],
                 "allowed_mentions": {"parse": ["everyone"] if urgent else []},
@@ -78,4 +79,4 @@ class Discord:
             time.sleep(self.pause)
 
     def message(self, texte):
-        self._poster({"content": texte[:1900], "allowed_mentions": {"parse": []}})
+        self._poster({"username": "Bot Pokémon", "content": texte[:1900], "allowed_mentions": {"parse": []}})
