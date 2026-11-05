@@ -1,4 +1,4 @@
-name: Surveillance
+name: Surveillance  # toutes les 5 minutes
 
 on:
   schedule:
