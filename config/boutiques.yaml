@@ -1,0 +1,68 @@
+# Boutiques surveillées.
+# port: estimation utilisée dans le calcul. Remplace-la par le vrai tarif si tu le connais.
+# franco: montant à partir duquel la livraison est offerte.
+delai_secondes: 2      # pause entre deux requêtes vers une boutique
+pages_max: 6           # pages de catalogue lues par collection
+
+boutiques:
+  - id: kairyu
+    nom: Kairyu
+    type: shopify
+    url: https://kairyu.fr
+    collections: [fr-francais, display, collector]
+    collections_cartes: [frjap-cartes]
+    port: 6.90
+
+  - id: lorenzone
+    nom: LorenZone
+    type: shopify
+    url: https://lorenzone.fr
+    collections: [produits-officiels-pokemon, precommandes]
+    collections_cartes: [cartes-pokemon-unite]
+    port: 6.90
+    franco: 100
+    note_precommande: Précommande sur invitation du Club LorenZone
+
+  # Plateforme à confirmer : le diagnostic dira si ce catalogue est lisible.
+  - id: coin-des-barons
+    nom: Le Coin des Barons
+    type: shopify
+    url: https://www.lecoindesbarons.com
+    collections: []
+    collections_cartes: []
+    port: 6.90
+
+  # Boutiques lues page par page : colle ici l'adresse de chaque produit à suivre.
+  # Exemple :
+  #   - serie: regne-delta
+  #     type: etb
+  #     url: https://www.exemple.fr/produit
+  - id: fnac
+    nom: Fnac
+    type: page_produit
+    port: 0
+    pages: []
+
+  - id: cultura
+    nom: Cultura
+    type: page_produit
+    port: 0
+    pages: []
+
+  - id: micromania
+    nom: Micromania
+    type: page_produit
+    port: 0
+    pages: []
+
+  - id: amazon
+    nom: Amazon.fr
+    type: page_produit
+    port: 0
+    pages: []
+
+  - id: blazing-tail
+    nom: Blazing Tail
+    type: page_produit
+    port: 6.90
+    pages: []

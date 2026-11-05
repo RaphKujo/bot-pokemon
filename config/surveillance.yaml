@@ -1,0 +1,144 @@
+# Ce que le bot surveille. Modifie ce fichier pour ajouter une série ou changer un prix.
+#
+# mode: prix  -> alerte si le produit est disponible à +15 % maximum du prix de base.
+# mode: stock -> alerte dès le retour en stock, sauf si un prix_max est dépassé.
+# priorite: haute -> l'alerte Discord mentionne @everyone.
+
+seuil_pct: 15             # marge autorisée au-dessus du prix de base
+baisse_min_pct: 5         # nouvelle alerte si le prix baisse d'au moins 5 %
+anti_rebond_minutes: 60   # évite les alertes en boucle quand un stock clignote
+types_sans_port: [booster, tripack]   # petits achats : le port se partage dans un panier
+
+series:
+  - id: regne-delta
+    nom: Règne Delta
+    code: ME06
+    priorite: haute
+    mode: prix
+    mots: ["regne delta", "me06", "me6"]
+    # Prix relevés le 5 novembre 2026 (précommandes Amazon via ChocoBonPlan).
+    # Display et booster sont déduits de 5,99 € le booster.
+    prix_base:
+      display: 215.64
+      demi-display: 107.82
+      etb: 55.99
+      bundle: 35.94
+      tripack: 17.99
+      booster: 5.99
+
+  - id: evolution-celeste
+    nom: Évolution Céleste
+    code: EB07
+    priorite: haute
+    mode: stock
+    mots: ["evolution celeste", "evolutions celestes", "eb07", "eb7"]
+
+  - id: 30-ans
+    nom: 30ᵉ Anniversaire
+    priorite: normale
+    mode: prix
+    mots: ["30e anniversaire", "30eme anniversaire", "30 ans"]
+    prix_base:
+      etb: 55.99
+      bundle: 35.99
+      coffret: 24.99
+
+  - id: mega-evolution
+    nom: Méga-Évolution
+    code: ME01
+    priorite: normale
+    mode: stock
+    mots: ["me01", "me1", "mega evolution"]
+    exclure: ["me02", "flammes fantasmagoriques", "heros transcendants", "me03",
+              "equilibre parfait", "me04", "chaos ascendant", "me05", "nuit noire",
+              "me06", "regne delta", "30e", "30eme", "30 ans", "anniversaire", "energies"]
+
+  - id: foudre-noire
+    nom: Foudre Noire
+    code: EV10.5
+    priorite: normale
+    mode: stock
+    mots: ["foudre noire"]
+
+  - id: flamme-blanche
+    nom: Flamme Blanche
+    code: EV10.5
+    priorite: normale
+    mode: stock
+    mots: ["flamme blanche", "flammes blanches"]
+
+  - id: destinees-de-paldea
+    nom: Destinées de Paldea
+    code: EV04.5
+    priorite: normale
+    mode: stock
+    mots: ["destinees de paldea", "destinee de paldea", "ev04 5", "ev4 5"]
+
+  - id: "151"
+    nom: "151"
+    code: EV03.5
+    priorite: normale
+    mode: stock
+    mots: ["151", "ev03 5", "ev3 5"]
+
+  - id: tempete-argentee
+    nom: Tempête Argentée
+    code: EB12
+    priorite: normale
+    mode: stock
+    mots: ["tempete argentee", "eb12"]
+
+  - id: origine-perdue
+    nom: Origine Perdue
+    code: EB11
+    priorite: normale
+    mode: stock
+    mots: ["origine perdue", "eb11"]
+
+  # Toutes les autres séries françaises : alerte à chaque ajout ou retour en stock, sans plafond.
+  - id: anciennes
+    nom: Anciennes séries
+    priorite: normale
+    mode: stock
+    groupe: true
+    mots: [
+      # Écarlate et Violet
+      "rivalites destinees", "aventures ensemble", "evolutions prismatiques", "etincelles deferlantes",
+      "couronne stellaire", "fable nebuleuse", "mascarade crepusculaire", "forces temporelles",
+      "faille paradoxe", "flammes obsidiennes", "evolutions a paldea", "evolution a paldea",
+      "ecarlate et violet",
+      # Épée et Bouclier
+      "zenith supreme", "pokemon go", "astres radieux", "stars etincelantes", "poing de fusion",
+      "celebrations", "regne de glace", "styles de combat", "style de combat", "destinees radieuses",
+      "voltage eclatant", "la voie du maitre", "voie du maitre", "tenebres embrasees",
+      "clash des rebelles", "epee et bouclier",
+      # Soleil et Lune
+      "eclipse cosmique", "destinees occultes", "harmonie des esprits", "alliance infaillible",
+      "duo de choc", "tonnerre perdu", "majeste des dragons", "tempete celeste", "lumiere interdite",
+      "ultra prisme", "invasion carmin", "legendes brillantes", "ombres ardentes",
+      "gardiens ascendants", "soleil et lune",
+      # XY et Noir et Blanc
+      "offensive vapeur", "impact des destins", "generations", "rupture turbo", "impulsion turbo",
+      "origines antiques", "ciel rugissant", "double danger", "primo choc", "vigueur spectrale",
+      "poings furieux", "bienvenue a kalos", "legendary treasures", "explosion plasma",
+      "glaciation plasma", "tempete plasma", "frontieres franchies", "coffre des dragons",
+      "dragons exaltes", "explorateurs obscurs", "destinees futures", "nobles victoires",
+      "pouvoirs emergents",
+      # Blocs plus anciens
+      "l appel des legendes", "appel des legendes", "hs triomphe", "hs indomptable", "hs dechainement",
+      "heartgold soulsilver", "platine arceus", "vainqueurs supremes", "rivaux emergeants",
+      "eveil des legendes", "aube majestueuse", "duels au sommet", "merveilles secretes",
+      "tresors mysterieux", "diamant et perle", "diamant perle", "gardiens du pouvoir",
+      "ile des dragons", "gardiens de cristal", "fantomes holon", "createurs de legendes",
+      "especes delta", "forces cachees", "team rocket returns", "rouge feu", "legendes oubliees",
+      "tempete de sable", "rubis et saphir", "rubis saphir", "skyridge", "aquapolis",
+      "legendary collection", "neo destiny", "neo revelation", "neo discovery", "neo genesis",
+      "gym challenge", "gym heroes", "base set 2", "set de base",
+    ]
+
+# Cartes à l'unité. Exemple :
+#   - nom: Dracaufeu
+#     numero: "125/197"
+#     prix_max: 60
+#     etats: ["near mint", "neuf"]   # optionnel
+cartes: []
