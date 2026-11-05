@@ -41,7 +41,7 @@ series:
     en: "30th Celebration"
     priorite: normale
     mode: prix
-    mots: ["30e anniversaire", "30eme anniversaire", "30 ans"]
+    mots: ["30e anniversaire", "30eme anniversaire", "30 ans", "30e anniv", "30th celebration"]
     prix_base:
       etb: 55.99
       bundle: 35.99

@@ -40,6 +40,8 @@ def serie_type(titre):
     ("ETB - Pokemon - Méga-Évolution - ME01 - Scellé - Français", ("mega-evolution", "etb")),
     ("Coffret Dresseur d'élite 30e Anniversaire", ("30-ans", "etb")),
     ("Lot de boosters Pokémon 30 ans", ("30-ans", "bundle")),
+    ("COFFRET POKÉMON 30 ANS CÉLÉBRATION DRESSEUR D'ÉLITE", ("30-ans", "etb")),
+    ("COLLECTION ULTRA PREMIUM POKÉMON JCC 30TH CELEBRATION NUIT", ("30-ans", "ultra-premium")),
     ("Pokémon – Tripack – Règne Delta – ME06 – 3 boosters – en français", ("regne-delta", "tripack")),
     ("Display EV06 - Mascarade Crépusculaire [FR]", ("anciennes", "display")),
     ("Display EB08 - Poing de Fusion [FR]", ("anciennes", "display")),
@@ -258,6 +260,42 @@ def test_lecture_woocommerce():
     boutique = {"id": "b", "nom": "B", "url": "https://x.fr", "categories": ["tripack"], "port": 6.9}
     o = sources.lire_woocommerce(boutique, Faux(), CONFIG)[0]
     assert (o["prix"], o["dispo"], o["type"], o["suivi_id"]) == (21.99, "stock", "tripack", "regne-delta")
+
+
+def _bloc(titre, enseigne, prix, expire=False, ident="1"):
+    fin = "price__promotion--expired" if expire else ""
+    return (f'<div class="box-corner box-bp"><a class="visite" id="{ident}" href="https://chocobp.com/{ident}">'
+            f'<img src="https://cdn.x/i.png"></a><span class="price__promotion {fin}">{prix} €</span>'
+            f'<h2 class="box-corner__title">{titre}</h2><div class="box-corner__subtitle">@ {enseigne}'
+            f'<span class="payment"></span></div></div>')
+
+
+def test_flux_bons_plans():
+    page_html = (_bloc("[PRÉCOMMANDE] ETB POKÉMON ME06 RÈGNE DELTA", "Amazon", "55.99", ident="1")
+                 + _bloc("TRIPACK ME06 RÈGNE DELTA", "Fnac", "17.99", expire=True, ident="2")
+                 + _bloc("ETB POKÉMON ME06 RÈGNE DELTA", "Amazon UK", "50.00", ident="3")
+                 + _bloc("Display S1V3 - Les Terres d'Encres", "Fnac", "90.00", ident="4"))
+
+    class Faux:
+        def lire(self, url):
+            return type("R", (), {"text": page_html})()
+
+    boutique = {"id": "choco", "nom": "ChocoBonPlan", "url": "https://x", "port": 0, "port_inconnu": True, "note": "n"}
+    offres = sources.lire_flux(boutique, Faux(), CONFIG)
+    assert [(o["boutique_nom"], o["type"], o["prix"], o["dispo"]) for o in offres] == [
+        ("Amazon", "etb", 55.99, "precommande"), ("Fnac", "tripack", 17.99, "rupture")]
+    assert offres[0]["boutique"] == "choco"
+    o = {**offres[0], "compare": 55.99}
+    valeurs = {c["name"]: c["value"] for c in embed(o, "nouveau")["fields"]}
+    assert valeurs["Livraison"] == "À vérifier" and valeurs["À savoir"] == "n"
+
+
+def test_flux_garde_une_offre_absente_quelques_jours():
+    etat = {"boutiques": {"f": {"init": True}}, "offres": {"f:1": {**offre(id="f:1", boutique="f"), "vu": "2026-11-05", "alertable": True}}}
+    main.traiter_offres(etat, {"id": "f", "flux_recent": True}, [], CONFIG, T0)
+    assert etat["offres"]["f:1"]["dispo"] == "stock"
+    main.traiter_offres(etat, {"id": "f", "flux_recent": True}, [], CONFIG, T0 + timedelta(days=8))
+    assert etat["offres"]["f:1"]["dispo"] == "retiree"
 
 
 def test_page_echappe_le_html():

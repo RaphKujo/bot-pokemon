@@ -4,7 +4,7 @@ import csv
 import json
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -17,6 +17,7 @@ RACINE = Path(__file__).resolve().parent.parent
 PARIS = ZoneInfo("Europe/Paris")
 DELAI_PANNE = timedelta(minutes=30)
 DELAI_SAUVEGARDE = timedelta(minutes=60)
+DUREE_FLUX = timedelta(days=7)
 
 
 def charger_yaml(chemin):
@@ -87,6 +88,7 @@ def traiter_offres(etat, boutique, offres, config, maintenant):
         ancienne = etat["offres"].get(offre["id"])
         offre["compare"] = regles.prix_compare(offre, config)
         offre["cle"] = cle_offre(offre, config)
+        offre["vu"] = maintenant.date().isoformat()
         dispo = offre["dispo"] in regles.DISPONIBLE
         minima = [p for p in ((ancienne or {}).get("prix_min"), offre["prix"] if dispo else None) if p]
         offre["prix_min"] = min(minima) if minima else None
@@ -104,6 +106,10 @@ def traiter_offres(etat, boutique, offres, config, maintenant):
         etat["offres"][offre["id"]] = offre
     for ident, offre in etat["offres"].items():
         if offre["boutique"] == boutique["id"] and ident not in vues and offre["dispo"] != "retiree":
+            # Une page de bons plans ne montre que les dernières offres : l'absence ne prouve rien.
+            if boutique.get("flux_recent") and offre.get("vu"):
+                if maintenant.date() - date.fromisoformat(offre["vu"]) < DUREE_FLUX:
+                    continue
             offre.update(dispo="retiree", alertable=False)
             changements.append(offre)
     info.update(init=True, ok=True, nb_offres=len(vues), message=None, panne_depuis=None)

@@ -1,6 +1,7 @@
 """Lit les catalogues des boutiques, sans jamais contourner une protection."""
 import html
 import json
+import re
 import time
 from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
@@ -72,6 +73,7 @@ def _nouvelle_offre(boutique, regle, identifiant, titre, url, prix, dispo, image
         "prix": prix, "port": port, "total": round(prix + port, 2), "dispo": dispo,
         "note": boutique.get("note_precommande") if dispo == "precommande" else None,
         "image": image if str(image or "").startswith("https://") else None,
+        "port_inconnu": bool(boutique.get("port_inconnu")),
         **regle,
     }
 
@@ -175,6 +177,52 @@ def lire_woocommerce(boutique, lecteur, config, pages_max=6):
     return list(offres.values())
 
 
+def analyser_flux(html_page):
+    """Extrait les offres de la page de bons plans. Renvoie une liste de dictionnaires."""
+    soupe = BeautifulSoup(html_page, "html.parser")
+    resultat = []
+    for bloc in soupe.select(".box-bp"):
+        titre = bloc.select_one(".box-corner__title")
+        prix = bloc.select_one(".price__promotion")
+        lien = bloc.select_one("a.visite")
+        enseigne = bloc.select_one(".box-corner__subtitle")
+        if not (titre and prix and lien and enseigne):
+            continue
+        montant = re.search(r"\d+(?:[.,]\d+)?", prix.get_text())
+        nom = enseigne.get_text(" ", strip=True).lstrip("@ ").strip()
+        if not montant or not nom:
+            continue
+        image = bloc.select_one("img")
+        expire = bool(bloc.select_one(".price__promotion--expired, .box-corner__img--expired"))
+        resultat.append({
+            "id": lien.get("id") or lien.get("data-id") or lien.get("href"),
+            "titre": titre.get_text(" ", strip=True), "enseigne": nom, "url": lien.get("href"),
+            "prix": montant.group().replace(",", "."), "expire": expire,
+            "image": image.get("src") if image else None,
+        })
+    return resultat
+
+
+def lire_flux(boutique, lecteur, config):
+    """Lit une page qui recense les offres de toutes les enseignes."""
+    offres = []
+    for deal in analyser_flux(lecteur.lire(boutique["url"]).text):
+        if re.search(r"\b(UK|DE|IT|ES|BE)$", deal["enseigne"]):
+            continue
+        titre = re.sub(r"^\[?pr[ée]commande\]?\s*", "", deal["titre"], flags=re.I)
+        trouve = produits.reconnaitre(titre, config["series"])
+        if not trouve:
+            continue
+        precommande = produits.contient(produits.normaliser(deal["titre"]), "precommande")
+        dispo = "rupture" if deal["expire"] else ("precommande" if precommande else "stock")
+        regle = regles.regle_serie(trouve[0], trouve[1], config)
+        offre = _nouvelle_offre({**boutique, "nom": deal["enseigne"]}, regle, deal["id"], titre, deal["url"],
+                                deal["prix"], dispo, deal["image"])
+        offre["note"] = boutique.get("note")
+        offres.append(offre)
+    return offres
+
+
 def _blocs_jsonld(soupe):
     for balise in soupe.find_all("script", type="application/ld+json"):
         try:
@@ -233,6 +281,8 @@ def lire_pages(boutique, lecteur, config):
 def lire_boutique(boutique, lecteur, config, pages_max=6):
     if boutique["type"] == "shopify":
         return lire_shopify(boutique, lecteur, config, pages_max)
+    if boutique["type"] == "flux":
+        return lire_flux(boutique, lecteur, config)
     if boutique["type"] == "woocommerce":
         return lire_woocommerce(boutique, lecteur, config, pages_max)
     return lire_pages(boutique, lecteur, config)

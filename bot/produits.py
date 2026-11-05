@@ -49,7 +49,7 @@ def type_produit(titre):
         return "demi-display"
     if contient_un(t, ["display", "36 boosters", "booster box"]):
         return "display"
-    if contient_un(t, ["etb", "coffret dresseur d elite", "elite trainer"]):
+    if contient_un(t, ["etb", "dresseur d elite", "elite trainer"]):
         return "etb"
     if contient_un(t, ["bundle", "6 boosters", "lot de boosters"]):
         return "bundle"

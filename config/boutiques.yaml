@@ -30,33 +30,60 @@ boutiques:
     categories: [display-pokemon, coffret-dresseur-delite, bundle-pokemon, tripack-pokemon, booster-pokemon, coffrets-pokemon, pokebox-pokemon, anniversaire-pokemon]
     port: 6.90
 
+  # Recense les offres d'Amazon, Fnac, Cultura, Micromania, Leclerc et d'autres enseignes.
+  - id: chocobonplan
+    nom: ChocoBonPlan
+    type: flux
+    url: https://www.chocobonplan.com/bons-plans/c/cartes-pokemon
+    flux_recent: true
+    port: 0
+    port_inconnu: true
+    note: Repéré par ChocoBonPlan. Vérifie le prix et le stock sur le site du vendeur.
+
   # Boutiques lues page par page : colle ici l'adresse de chaque produit à suivre.
   # Exemple :
   #   - serie: regne-delta
   #     type: etb
   #     url: https://www.exemple.fr/produit
+  - id: smyths
+    nom: Smyths Toys
+    type: page_produit
+    port: 0
+    port_inconnu: true
+    pages:
+      - serie: regne-delta
+        type: etb
+        url: https://www.smythstoys.com/fr/fr-fr/jouets/jeux-de-societe-et-puzzles/cartes-a-collectionner/cartes-pokemon/pokemon-coffret-dresseur-delite-me06-mega-evolution-regne-delta/p/261817
+
   - id: fnac
     nom: Fnac
     type: page_produit
     port: 0
+    port_inconnu: true
     pages: []
 
   - id: cultura
     nom: Cultura
     type: page_produit
     port: 0
-    pages: []
+    port_inconnu: true
+    pages:
+      - serie: flamme-blanche
+        type: etb
+        url: https://www.cultura.com/p-coffret-pokemon-dresseur-d-elite-ecarlate-et-violet-flamme-blanche-11987401.html
 
   - id: micromania
     nom: Micromania
     type: page_produit
     port: 0
+    port_inconnu: true
     pages: []
 
   - id: amazon
     nom: Amazon.fr
     type: page_produit
     port: 0
+    port_inconnu: true
     pages: []  # Amazon bloque les robots
 
   - id: blazing-tail

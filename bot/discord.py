@@ -38,7 +38,10 @@ def embed(offre, motif, contexte=None, page_suivi=None):
     nom = offre["titre"] if offre.get("groupe") else f"{genre} {offre['suivi_nom']}"
     cote = contexte.get("cote")
     avis, ton = regles.verdict(offre, autres, cote)
-    port = "Offerte" if offre["port"] == 0 else f"{euros(offre['port'])} (estimé)"
+    if offre.get("port_inconnu"):
+        port = "À vérifier"
+    else:
+        port = "Offerte" if offre["port"] == 0 else f"{euros(offre['port'])} (estimé)"
     champs = [
         {"name": "Prix vendu", "value": euros(offre["prix"]), "inline": True},
         {"name": "Livraison", "value": port, "inline": True},
