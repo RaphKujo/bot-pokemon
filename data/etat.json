@@ -21,10 +21,7 @@
    "panne_depuis": null
   },
   "cultura": {
-   "a_configurer": true,
-   "message": "accès refusé (code 403)",
-   "ok": false,
-   "panne_depuis": "2026-11-05T11:27:05.424775+00:00"
+   "a_configurer": true
   },
   "fnac": {
    "a_configurer": true
@@ -47,9 +44,7 @@
    "a_configurer": true
   },
   "smyths": {
-   "message": "accès refusé (code 403)",
-   "ok": false,
-   "panne_depuis": "2026-11-05T11:27:05.424775+00:00"
+   "a_configurer": true
   }
  },
  "offres": {
@@ -6980,5 +6975,5 @@
    "vu": "2026-11-05"
   }
  },
- "sauvegarde": "2026-11-05T11:27:05.424775+00:00"
+ "sauvegarde": "2026-11-05T12:22:42.235273+00:00"
 }
