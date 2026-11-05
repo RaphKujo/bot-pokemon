@@ -25,3 +25,29 @@ def assembler(produits, prix):
 
 def charger():
     return assembler(telecharger(PRODUITS), telecharger(PRIX))
+
+
+def _mini(candidats):
+    """Garde la version la moins chère quand un produit existe en plusieurs illustrations."""
+    avec_prix = [c for c in candidats if c.get("trend")]
+    return min(avec_prix, key=lambda c: c["trend"], default=None)
+
+
+def cote_pour(cotes, en, genre):
+    """Retrouve la cote d'un produit à partir du nom anglais de sa série."""
+    if not en:
+        return None
+    if genre == "display":
+        return _mini([c for c in cotes if c["nom"] == f"{en} Booster Box"])
+    if genre == "demi-display":
+        return _mini([c for c in cotes if c["nom"] == f"{en} Booster Box (18 Boosters)"])
+    if genre == "bundle":
+        return _mini([c for c in cotes if c["nom"] == f"{en} Booster Bundle"])
+    if genre == "booster":
+        return _mini([c for c in cotes if c["nom"] == f"{en} Booster"])
+    if genre == "etb":
+        return _mini([c for c in cotes if c["nom"] == f"{en} Elite Trainer Box"
+                      or c["nom"].startswith(f"{en} Elite Trainer Box [")])
+    if genre == "tripack":
+        return _mini([c for c in cotes if c["nom"].startswith(f"{en}: ") and c["nom"].endswith("3-Pack Blister")])
+    return None

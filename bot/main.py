@@ -57,6 +57,25 @@ def contexte_offre(offre, etat):
             "plus_bas": min(minima) if minima else None}
 
 
+def charger_cotes():
+    """La cote est un bonus : son absence ne doit jamais bloquer une alerte."""
+    try:
+        return marche.charger()
+    except Exception as erreur:
+        print(f"Cotes Cardmarket indisponibles : {type(erreur).__name__}")
+        return []
+
+
+def cote_offre(offre, cotes, config):
+    serie = next((s for s in config["series"] if s["id"] == offre["suivi_id"]), None)
+    if not serie:
+        return None
+    en = serie.get("en")
+    if serie.get("groupe"):
+        en = (serie.get("traductions") or {}).get(produits.mot_serie(offre["titre"], serie))
+    return marche.cote_pour(cotes, en, offre["type"])
+
+
 def traiter_offres(etat, boutique, offres, config, maintenant):
     """Met à jour les offres d'une boutique lue avec succès et renvoie les alertes."""
     info = etat["boutiques"].setdefault(boutique["id"], {})
@@ -154,7 +173,8 @@ def executer(racine, discord, maintenant=None):
 
     # Si Discord échoue, rien n'est enregistré : le passage suivant renverra l'alerte.
     if alertes:
-        discord.alertes([(o, m, contexte_offre(o, etat)) for o, m in alertes])
+        cotes = charger_cotes()
+        discord.alertes([(o, m, {**contexte_offre(o, etat), "cote": cote_offre(o, cotes, config)}) for o, m in alertes])
     for message in messages:
         discord.message(message)
 
@@ -194,14 +214,8 @@ def diagnostic(racine, discord):
                 etat_test["offres"][offre["id"]] = offre
         except (sources.Bloque, sources.Echec) as erreur:
             lignes.append(f"🔴 {boutique['nom']} : {erreur}")
-    try:
-        cotes = marche.charger()
-        lignes.append(f"🟢 Cardmarket : {len(cotes)} produits scellés")
-        exemples = [c for c in cotes if "Evolving Skies" in c["nom"] or "Delta Reign" in c["nom"]]
-        for cote in exemples[:30]:
-            print(cote)
-    except Exception as erreur:
-        lignes.append(f"🔴 Cardmarket : {type(erreur).__name__}")
+    cotes = charger_cotes()
+    lignes.append(f"🟢 Cardmarket : {len(cotes)} produits scellés" if cotes else "🔴 Cardmarket : cotes indisponibles")
     texte = "\n".join(lignes)
     print(texte)
     discord.message(texte)
@@ -209,7 +223,8 @@ def diagnostic(racine, discord):
     exemple = min(disponibles, key=lambda o: (o["suivi_id"] != "regne-delta", -o["prix"]), default=None)
     if exemple:
         discord.message("Exemple du format des alertes :")
-        discord.alertes([({**exemple, "priorite": "normale"}, "nouveau", contexte_offre(exemple, etat_test))])
+        contexte = {**contexte_offre(exemple, etat_test), "cote": cote_offre(exemple, cotes, config)}
+        discord.alertes([({**exemple, "priorite": "normale"}, "nouveau", contexte)])
 
 
 def principal():

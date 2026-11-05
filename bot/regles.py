@@ -67,8 +67,8 @@ def motif_alerte(offre, ancienne, boutique_connue, config, maintenant):
 BOOSTERS = {"display": 36, "demi-display": 18, "etb": 9, "bundle": 6, "tripack": 3, "booster": 1}
 
 
-def verdict(offre, autres):
-    """Donne un avis simple sur le prix. autres : offres disponibles ailleurs, triées par prix."""
+def verdict(offre, autres, cote=None):
+    """Donne un avis simple sur le prix à partir du prix de base, de la cote et des autres offres."""
     prix = offre["compare"]
     moins_cher = autres[0] if autres and autres[0]["compare"] < prix else None
     if offre.get("base"):
@@ -79,11 +79,19 @@ def verdict(offre, autres):
             avis, ton = "Bon prix", "bon"
         else:
             avis, ton = "Prix élevé", "cher"
+    elif cote and cote.get("trend"):
+        ecart = (prix / cote["trend"] - 1) * 100
+        if ecart <= -5:
+            avis, ton = "Sous la cote du marché", "bon"
+        elif ecart <= 10:
+            avis, ton = "Proche de la cote du marché", "moyen"
+        else:
+            avis, ton = "Au-dessus de la cote du marché", "cher"
     elif autres:
         avis, ton = ("Une autre boutique est moins chère", "moyen") if moins_cher else ("Le moins cher trouvé", "bon")
     else:
         avis, ton = "Seule offre trouvée", "moyen"
-    if offre.get("base") and moins_cher:
+    if (offre.get("base") or cote) and moins_cher:
         avis += ", mais moins cher ailleurs"
         ton = "moyen"
     return avis, ton

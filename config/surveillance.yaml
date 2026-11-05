@@ -13,6 +13,7 @@ types_sans_port: [booster, tripack]   # petits achats : le port se partage dans 
 series:
   - id: regne-delta
     nom: Règne Delta
+    en: "Delta Reign"
     code: ME06
     priorite: haute
     mode: prix
@@ -29,6 +30,7 @@ series:
 
   - id: evolution-celeste
     nom: Évolution Céleste
+    en: "Evolving Skies"
     code: EB07
     priorite: haute
     mode: stock
@@ -36,6 +38,7 @@ series:
 
   - id: 30-ans
     nom: 30ᵉ Anniversaire
+    en: "30th Celebration"
     priorite: normale
     mode: prix
     mots: ["30e anniversaire", "30eme anniversaire", "30 ans"]
@@ -46,6 +49,7 @@ series:
 
   - id: mega-evolution
     nom: Méga-Évolution
+    en: "Mega Evolution"
     code: ME01
     priorite: normale
     mode: stock
@@ -56,6 +60,7 @@ series:
 
   - id: foudre-noire
     nom: Foudre Noire
+    en: "Black Bolt"
     code: EV10.5
     priorite: normale
     mode: stock
@@ -63,6 +68,7 @@ series:
 
   - id: flamme-blanche
     nom: Flamme Blanche
+    en: "White Flare"
     code: EV10.5
     priorite: normale
     mode: stock
@@ -70,6 +76,7 @@ series:
 
   - id: destinees-de-paldea
     nom: Destinées de Paldea
+    en: "Paldean Fates"
     code: EV04.5
     priorite: normale
     mode: stock
@@ -77,6 +84,7 @@ series:
 
   - id: "151"
     nom: "151"
+    en: "151"
     code: EV03.5
     priorite: normale
     mode: stock
@@ -84,6 +92,7 @@ series:
 
   - id: tempete-argentee
     nom: Tempête Argentée
+    en: "Silver Tempest"
     code: EB12
     priorite: normale
     mode: stock
@@ -91,6 +100,7 @@ series:
 
   - id: origine-perdue
     nom: Origine Perdue
+    en: "Lost Origin"
     code: EB11
     priorite: normale
     mode: stock
@@ -102,6 +112,62 @@ series:
     priorite: normale
     mode: stock
     groupe: true
+    # Noms anglais utilisés par Cardmarket, pour retrouver la cote.
+    traductions:
+      "rivalites destinees": "Destined Rivals"
+      "aventures ensemble": "Journey Together"
+      "evolutions prismatiques": "Prismatic Evolutions"
+      "etincelles deferlantes": "Surging Sparks"
+      "couronne stellaire": "Stellar Crown"
+      "fable nebuleuse": "Shrouded Fable"
+      "mascarade crepusculaire": "Twilight Masquerade"
+      "forces temporelles": "Temporal Forces"
+      "faille paradoxe": "Paradox Rift"
+      "flammes obsidiennes": "Obsidian Flames"
+      "evolutions a paldea": "Paldea Evolved"
+      "evolution a paldea": "Paldea Evolved"
+      "ecarlate et violet": "Scarlet & Violet"
+      "zenith supreme": "Crown Zenith"
+      "pokemon go": "Pokémon GO"
+      "astres radieux": "Astral Radiance"
+      "stars etincelantes": "Brilliant Stars"
+      "poing de fusion": "Fusion Strike"
+      "celebrations": "Celebrations"
+      "regne de glace": "Chilling Reign"
+      "styles de combat": "Battle Styles"
+      "style de combat": "Battle Styles"
+      "destinees radieuses": "Shining Fates"
+      "voltage eclatant": "Vivid Voltage"
+      "la voie du maitre": "Champion's Path"
+      "voie du maitre": "Champion's Path"
+      "tenebres embrasees": "Darkness Ablaze"
+      "clash des rebelles": "Rebel Clash"
+      "epee et bouclier": "Sword & Shield"
+      "eclipse cosmique": "Cosmic Eclipse"
+      "destinees occultes": "Hidden Fates"
+      "harmonie des esprits": "Unified Minds"
+      "alliance infaillible": "Unbroken Bonds"
+      "duo de choc": "Team Up"
+      "tonnerre perdu": "Lost Thunder"
+      "majeste des dragons": "Dragon Majesty"
+      "tempete celeste": "Celestial Storm"
+      "lumiere interdite": "Forbidden Light"
+      "ultra prisme": "Ultra Prism"
+      "invasion carmin": "Crimson Invasion"
+      "legendes brillantes": "Shining Legends"
+      "ombres ardentes": "Burning Shadows"
+      "gardiens ascendants": "Guardians Rising"
+      "soleil et lune": "Sun & Moon"
+      "offensive vapeur": "Steam Siege"
+      "impact des destins": "Fates Collide"
+      "generations": "Generations"
+      "rupture turbo": "BREAKpoint"
+      "impulsion turbo": "BREAKthrough"
+      "origines antiques": "Ancient Origins"
+      "ciel rugissant": "Roaring Skies"
+      "primo choc": "Primal Clash"
+      "vigueur spectrale": "Phantom Forces"
+      "poings furieux": "Furious Fists"
     mots: [
       # Écarlate et Violet
       "rivalites destinees", "aventures ensemble", "evolutions prismatiques", "etincelles deferlantes",

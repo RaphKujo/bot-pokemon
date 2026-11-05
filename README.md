@@ -44,6 +44,9 @@ clé GitHub limitée aux gists, à créer une seule fois.
 - **Anciennes séries :** toutes les autres séries françaises sont suivies sans plafond. Le premier
   passage est silencieux, puis chaque ajout ou retour en stock déclenche une alerte.
 - **Nouvelle alerte :** elle part si une offre revient, ou si son prix baisse d'au moins 5 %.
+- **Contenu d'une alerte :** avis sur le prix, visuel, prix, livraison estimée, total, écart avec le
+  prix de base, prix par booster, cote Cardmarket, prix ailleurs, plus bas relevé et liens d'achat.
+  La cote mélange toutes les langues : pour un produit français, c'est un repère, pas un prix exact.
 - **Boutique illisible :** si elle reste inaccessible 30 minutes, le bot te prévient sur Discord.
 
 ## Limites

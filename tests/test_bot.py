@@ -194,6 +194,42 @@ def test_cle_serie_groupee():
     assert main.cle_offre(o, CONFIG) == "anciennes:display:poing de fusion"
 
 
+COTES = [{"nom": "Evolving Skies Booster Box", "trend": 1673.72, "low": 1039},
+         {"nom": "Evolving Skies Booster Box (18 Boosters)", "trend": 923.67, "low": 800},
+         {"nom": "Evolving Skies Elite Trainer Box [LUJF]", "trend": 462.72, "low": 300},
+         {"nom": "Evolving Skies Elite Trainer Box [SEGV]", "trend": 453.17, "low": 300},
+         {"nom": "Evolving Skies Pokémon Center Elite Trainer Box [FJUL]", "trend": 1284.6, "low": 900},
+         {"nom": "Evolving Skies: Eiscue 3-Pack Blister", "trend": 208.23, "low": 120},
+         {"nom": "Evolving Skies Booster", "trend": 34.36, "low": 16.5},
+         {"nom": "Evolving Skies Booster (6 Cards)", "trend": 5.02, "low": 5}]
+
+
+@pytest.mark.parametrize("genre,trend", [
+    ("display", 1673.72), ("demi-display", 923.67), ("etb", 453.17), ("tripack", 208.23), ("booster", 34.36), ("coffret", None),
+])
+def test_cote_trouvee(genre, trend):
+    from bot import marche
+    cote = marche.cote_pour(COTES, "Evolving Skies", genre)
+    assert (cote["trend"] if cote else None) == trend
+
+
+def test_cote_serie_groupee_et_verdict():
+    serie = next(s for s in SERIES if s["id"] == "evolution-celeste")
+    o = offre(prix=1500.0, total=1506.9, **regles.regle_serie(serie, "display", CONFIG))
+    cote = main.cote_offre(o, COTES, CONFIG)
+    assert cote["trend"] == 1673.72
+    assert regles.verdict(o, [], cote) == ("Sous la cote du marché", "bon")
+    message = embed(o, "retour", {"cote": cote})
+    assert message["description"].startswith("**Sous la cote du marché**")
+    assert any("1 673,72 €, dès 1 039,00 €" == c["value"] for c in message["fields"])
+
+
+def test_panne_cotes_ne_bloque_pas(monkeypatch):
+    from bot import marche
+    monkeypatch.setattr(marche, "charger", lambda: 1 / 0)
+    assert main.charger_cotes() == []
+
+
 def test_assemblage_cotes():
     from bot import marche
     cotes = marche.assembler({"products": [{"idProduct": 1, "name": "Evolving Skies Booster Box"}]},
@@ -285,6 +321,7 @@ def test_parcours_complet(banc):
     ETAT_SERVEUR["produits"] = [produit("55.99")]
     assert [m for _, m in main.executer(dossier, discord, T0 + timedelta(minutes=5))] == ["retour"]
     assert "@everyone" in ETAT_SERVEUR["recus"][-1]["content"]
+    assert ETAT_SERVEUR["recus"][-1]["username"] == "Bot Pokémon"
     assert main.executer(dossier, discord, T0 + timedelta(minutes=10)) == []
 
     ETAT_SERVEUR["produits"] = [produit("74.90")]

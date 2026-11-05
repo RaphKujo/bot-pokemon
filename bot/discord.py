@@ -36,7 +36,8 @@ def embed(offre, motif, contexte=None, page_suivi=None):
     genre = NOMS_TYPES.get(offre["type"], offre["type"])
     dispo = "Précommande" if offre["dispo"] == "precommande" else "En stock"
     nom = offre["titre"] if offre.get("groupe") else f"{genre} {offre['suivi_nom']}"
-    avis, ton = regles.verdict(offre, autres)
+    cote = contexte.get("cote")
+    avis, ton = regles.verdict(offre, autres, cote)
     port = "Offerte" if offre["port"] == 0 else f"{euros(offre['port'])} (estimé)"
     champs = [
         {"name": "Prix vendu", "value": euros(offre["prix"]), "inline": True},
@@ -48,6 +49,11 @@ def embed(offre, motif, contexte=None, page_suivi=None):
                    {"name": "Écart", "value": _ecart(offre), "inline": True}]
     if offre.get("seuil"):
         champs.append({"name": "Ton seuil", "value": euros(offre["seuil"]), "inline": True})
+    if cote and cote.get("trend"):
+        valeur = euros(cote["trend"])
+        if cote.get("low"):
+            valeur += f", dès {euros(cote['low'])}"
+        champs.append({"name": "Cote Cardmarket, toutes langues", "value": valeur, "inline": True})
     nombre = regles.BOOSTERS.get(offre["type"])
     if nombre and nombre > 1:
         champs.append({"name": "Par booster", "value": f"environ {euros(offre['prix'] / nombre)}", "inline": True})
