@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 11,
+   "nb_offres": 12,
    "ok": true,
    "panne_depuis": null
   },
@@ -336,6 +336,36 @@
    "total": 107.82,
    "type": "demi-display",
    "url": "https://chocobp.com/i5pq97",
+   "vu": "2026-11-05"
+  },
+  "coin-des-barons:167288": {
+   "alertable": true,
+   "base": null,
+   "boutique": "coin-des-barons",
+   "boutique_nom": "Le Coin des Barons",
+   "cle": "anciennes:booster:evolutions a paldea",
+   "code": null,
+   "compare": 6.99,
+   "derniere_alerte": "2026-11-05T13:40:42.943173+00:00",
+   "dispo": "stock",
+   "groupe": true,
+   "id": "coin-des-barons:167288",
+   "image": "https://lecoindesbarons.com/wp-content/uploads/2026/05/booster-ev02-evolutions-a-paldea-pokemon-ecarlate-et-violet-fr-sv2-682260c4b99b2.jpg",
+   "mode": "stock",
+   "note": null,
+   "port": 6.9,
+   "port_inconnu": false,
+   "priorite": "normale",
+   "prix": 6.99,
+   "prix_alerte": 6.99,
+   "prix_min": 6.99,
+   "seuil": null,
+   "suivi_id": "anciennes",
+   "suivi_nom": "Anciennes séries",
+   "titre": "Pokémon – Booster – Évolutions à Paldea – EV02 – en français",
+   "total": 13.89,
+   "type": "booster",
+   "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/booster-pokemon/pokemon-booster-evolutions-a-paldea-ev02-en-francais/",
    "vu": "2026-11-05"
   },
   "coin-des-barons:193904": {
@@ -843,14 +873,14 @@
    "vu": "2026-11-05"
   },
   "kairyu:43204522901763": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "origine-perdue:display",
    "code": "EB11",
    "compare": 456.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:43204522901763",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/300822.png?v=1661865607",
@@ -6975,5 +7005,5 @@
    "vu": "2026-11-05"
   }
  },
- "sauvegarde": "2026-11-05T12:22:42.235273+00:00"
+ "sauvegarde": "2026-11-05T13:40:42.943173+00:00"
 }
