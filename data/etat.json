@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 9,
+   "nb_offres": 13,
    "ok": true,
    "panne_depuis": null
   },
@@ -368,6 +368,34 @@
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/booster-pokemon/pokemon-booster-evolutions-a-paldea-ev02-en-francais/",
    "vu": "2026-11-06"
   },
+  "coin-des-barons:193902": {
+   "alertable": false,
+   "base": 24.99,
+   "boutique": "coin-des-barons",
+   "boutique_nom": "Le Coin des Barons",
+   "cle": "30-ans:coffret",
+   "code": null,
+   "compare": 51.89,
+   "dispo": "stock",
+   "groupe": false,
+   "id": "coin-des-barons:193902",
+   "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-collection-poster-pokemon-fr-6a4e86a3738b6-1.webp",
+   "mode": "prix",
+   "note": null,
+   "port": 6.9,
+   "port_inconnu": false,
+   "priorite": "normale",
+   "prix": 44.99,
+   "prix_min": 44.99,
+   "seuil": 28.74,
+   "suivi_id": "30-ans",
+   "suivi_nom": "30ᵉ Anniversaire",
+   "titre": "Pokémon – Coffret – Poster – 30e Anniversaire – en français",
+   "total": 51.89,
+   "type": "coffret",
+   "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/coffrets-pokemon/pokemon-coffret-poster-30e-anniversaire-en-francais/",
+   "vu": "2026-11-06"
+  },
   "coin-des-barons:193904": {
    "alertable": false,
    "base": 24.99,
@@ -376,7 +404,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 56.89,
-   "dispo": "retiree",
+   "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:193904",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-coffret-amphinobi-ex-pokemon-fr-6a4e7f1357552-1.webp",
@@ -488,7 +516,7 @@
    "cle": "regne-delta:display",
    "code": "ME06",
    "compare": 266.89,
-   "dispo": "retiree",
+   "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202619",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/10/Pokemon-Display-Regne-Delta-ME06-Boite-de-36-Boosters-en-francais.png",
@@ -516,7 +544,7 @@
    "cle": "regne-delta:bundle",
    "code": "ME06",
    "compare": 51.89,
-   "dispo": "retiree",
+   "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202620",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/10/Pokemon-–-Bundle-–-Regne-Delta-–-ME06-_-6-Boosters-–-en-francais.png",
@@ -7005,5 +7033,5 @@
    "vu": "2026-11-06"
   }
  },
- "sauvegarde": "2026-11-06T10:39:55.619247+00:00"
+ "sauvegarde": "2026-11-06T11:31:50.018033+00:00"
 }
