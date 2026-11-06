@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 12,
+   "nb_offres": 11,
    "ok": true,
    "panne_depuis": null
   },
@@ -376,7 +376,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 56.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:193904",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-coffret-amphinobi-ex-pokemon-fr-6a4e7f1357552-1.webp",
@@ -7005,5 +7005,5 @@
    "vu": "2026-11-06"
   }
  },
- "sauvegarde": "2026-11-06T05:34:08.675556+00:00"
+ "sauvegarde": "2026-11-06T06:35:05.094820+00:00"
 }
