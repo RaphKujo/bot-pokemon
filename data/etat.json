@@ -9,14 +9,14 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 10,
+   "nb_offres": 9,
    "ok": true,
    "panne_depuis": null
   },
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 11,
+   "nb_offres": 10,
    "ok": true,
    "panne_depuis": null
   },
@@ -516,7 +516,7 @@
    "cle": "regne-delta:bundle",
    "code": "ME06",
    "compare": 51.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202620",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/10/Pokemon-–-Bundle-–-Regne-Delta-–-ME06-_-6-Boosters-–-en-francais.png",
@@ -7005,5 +7005,5 @@
    "vu": "2026-11-06"
   }
  },
- "sauvegarde": "2026-11-06T06:35:05.094820+00:00"
+ "sauvegarde": "2026-11-06T07:50:30.846372+00:00"
 }
