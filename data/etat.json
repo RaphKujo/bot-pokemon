@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 13,
+   "nb_offres": 12,
    "ok": true,
    "panne_depuis": null
   },
@@ -460,7 +460,7 @@
    "cle": "30-ans:mini-tin",
    "code": null,
    "compare": 51.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202614",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-Pokebox-30e-Anniversaire-Mega-Amphinobi-ex-en-francais-3.png",
@@ -7063,5 +7063,5 @@
    "vu": "2026-11-08"
   }
  },
- "sauvegarde": "2026-11-08T03:32:44.429293+00:00"
+ "sauvegarde": "2026-11-08T04:28:15.788905+00:00"
 }
