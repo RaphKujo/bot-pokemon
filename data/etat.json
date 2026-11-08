@@ -2763,7 +2763,7 @@
    "vu": "2026-11-08"
   },
   "kairyu:59430625313103": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
@@ -2771,7 +2771,7 @@
    "code": "EB12",
    "compare": 236.8,
    "derniere_alerte": "2026-11-08T11:00:43.657581+00:00",
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:59430625313103",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/151222-2.png?v=1671111518",
@@ -7303,5 +7303,5 @@
    "vu": "2026-11-08"
   }
  },
- "sauvegarde": "2026-11-08T21:18:34.866042+00:00"
+ "sauvegarde": "2026-11-08T22:27:30.407547+00:00"
 }
