@@ -3897,7 +3897,7 @@
    "dispo": "rupture",
    "groupe": true,
    "id": "lorenzone:49491298353494",
-   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/bundle.png?v=1793975265",
+   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/bundle.png?v=1794216127",
    "mode": "stock",
    "note": null,
    "port": 6.9,
@@ -3925,7 +3925,7 @@
    "dispo": "rupture",
    "groupe": true,
    "id": "lorenzone:49491333710166",
-   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/Poster.png?v=1793975266",
+   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/Poster.png?v=1794216127",
    "mode": "stock",
    "note": null,
    "port": 6.9,
@@ -4345,7 +4345,7 @@
    "dispo": "rupture",
    "groupe": true,
    "id": "lorenzone:49890432123222",
-   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/MiniTin_8.5_12.png?v=1739800701",
+   "image": "https://cdn.shopify.com/s/files/1/0776/0848/5206/files/MiniTin_8.5_12.png?v=1794216128",
    "mode": "stock",
    "note": null,
    "port": 6.9,
@@ -7303,5 +7303,5 @@
    "vu": "2026-11-09"
   }
  },
- "sauvegarde": "2026-11-09T08:59:28.255782+00:00"
+ "sauvegarde": "2026-11-09T09:56:53.294421+00:00"
 }
