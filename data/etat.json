@@ -190,6 +190,34 @@
    "url": "https://chocobp.com/bzaykt",
    "vu": "2026-11-09"
   },
+  "chocobonplan:315740": {
+   "alertable": false,
+   "base": null,
+   "boutique": "chocobonplan",
+   "boutique_nom": "E.Leclerc",
+   "cle": "30-ans:mini-tin",
+   "code": null,
+   "compare": 24.9,
+   "dispo": "stock",
+   "groupe": false,
+   "id": "chocobonplan:315740",
+   "image": "https://cdn.chocobonplan.com/medias/120734/pokébox-30-ans-amphinobi-ex-visuel-produit.png",
+   "mode": "prix",
+   "note": "Repéré par ChocoBonPlan. Vérifie le prix et le stock sur le site du vendeur.",
+   "port": 0.0,
+   "port_inconnu": true,
+   "priorite": "normale",
+   "prix": 24.9,
+   "prix_min": 24.9,
+   "seuil": null,
+   "suivi_id": "30-ans",
+   "suivi_nom": "30ᵉ Anniversaire",
+   "titre": "Pokébox 30ème Anniversaire Amphinobi ex",
+   "total": 24.9,
+   "type": "mini-tin",
+   "url": "https://bit.ly/4i9lRSC",
+   "vu": "2026-11-09"
+  },
   "chocobonplan:318271": {
    "alertable": true,
    "base": 55.99,
@@ -7303,5 +7331,5 @@
    "vu": "2026-11-09"
   }
  },
- "sauvegarde": "2026-11-09T22:03:50.469019+00:00"
+ "sauvegarde": "2026-11-09T23:24:41.848385+00:00"
 }
