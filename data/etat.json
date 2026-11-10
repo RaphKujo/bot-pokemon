@@ -15,10 +15,10 @@
   },
   "coin-des-barons": {
    "init": true,
-   "message": null,
+   "message": "ConnectionError",
    "nb_offres": 16,
-   "ok": true,
-   "panne_depuis": null
+   "ok": false,
+   "panne_depuis": "2026-11-10T13:59:27.068957+00:00"
   },
   "cultura": {
    "a_configurer": true
@@ -7331,5 +7331,5 @@
    "vu": "2026-11-10"
   }
  },
- "sauvegarde": "2026-11-10T12:54:07.138290+00:00"
+ "sauvegarde": "2026-11-10T13:59:27.068957+00:00"
 }
