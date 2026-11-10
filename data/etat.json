@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 63,
+   "nb_offres": 62,
    "ok": true,
    "panne_depuis": null
   },
@@ -2709,7 +2709,7 @@
    "code": null,
    "compare": 4006.9,
    "derniere_alerte": "2026-11-07T10:55:52.125797+00:00",
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": true,
    "id": "kairyu:59423526125903",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/display-alliance-infaillible-sl10-fr.png?v=1794048501",
@@ -7331,5 +7331,5 @@
    "vu": "2026-11-10"
   }
  },
- "sauvegarde": "2026-11-10T19:39:54.405034+00:00"
+ "sauvegarde": "2026-11-10T21:14:31.690293+00:00"
 }
