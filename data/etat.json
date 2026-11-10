@@ -15,10 +15,10 @@
   },
   "coin-des-barons": {
    "init": true,
-   "message": "ConnectionError",
+   "message": null,
    "nb_offres": 16,
-   "ok": false,
-   "panne_depuis": "2026-11-10T13:59:27.068957+00:00"
+   "ok": true,
+   "panne_depuis": null
   },
   "cultura": {
    "a_configurer": true
@@ -627,7 +627,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "30-ans:coffret",
    "code": null,
-   "compare": 111.89,
+   "compare": 106.89,
    "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202623",
@@ -637,13 +637,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 104.99,
-   "prix_min": 104.99,
+   "prix": 99.99,
+   "prix_min": 99.99,
    "seuil": 28.74,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Pokémon – Coffret – 30e Anniversaire – Collection Premium Métamorph – en français",
-   "total": 111.89,
+   "total": 106.89,
    "type": "coffret",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/coffrets-pokemon/pokemon-coffret-30e-anniversaire-collection-premium-metamorph-en-francais/",
    "vu": "2026-11-10"
@@ -655,7 +655,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "30-ans:tripack",
    "code": null,
-   "compare": 39.99,
+   "compare": 36.99,
    "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202634",
@@ -665,13 +665,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 39.99,
-   "prix_min": 39.99,
+   "prix": 36.99,
+   "prix_min": 36.99,
    "seuil": null,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Pokémon – Tripack – 30e Anniversaire – Noadkoko – en français",
-   "total": 46.89,
+   "total": 43.89,
    "type": "tripack",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/tripack-pokemon/pokemon-tripack-30e-anniversaire-noadkoko-en-francais/",
    "vu": "2026-11-10"
@@ -683,7 +683,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "30-ans:tripack",
    "code": null,
-   "compare": 39.99,
+   "compare": 36.99,
    "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202635",
@@ -693,13 +693,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 39.99,
-   "prix_min": 39.99,
+   "prix": 36.99,
+   "prix_min": 36.99,
    "seuil": null,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Pokémon – Tripack – 30e Anniversaire – Lucario – en français",
-   "total": 46.89,
+   "total": 43.89,
    "type": "tripack",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/tripack-pokemon/pokemon-tripack-30e-anniversaire-lucario-en-francais/",
    "vu": "2026-11-10"
@@ -7331,5 +7331,5 @@
    "vu": "2026-11-10"
   }
  },
- "sauvegarde": "2026-11-10T13:59:27.068957+00:00"
+ "sauvegarde": "2026-11-10T14:53:25.233961+00:00"
 }
