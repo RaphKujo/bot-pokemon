@@ -795,7 +795,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "anciennes:etb:mascarade crepusculaire",
    "code": null,
-   "compare": 96.89,
+   "compare": 81.89,
    "dispo": "stock",
    "groupe": true,
    "id": "coin-des-barons:51171",
@@ -805,13 +805,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 89.99,
-   "prix_min": 89.99,
+   "prix": 74.99,
+   "prix_min": 74.99,
    "seuil": null,
    "suivi_id": "anciennes",
    "suivi_nom": "Anciennes séries",
    "titre": "Pokemon ETB EV06 – Mascarade Crépusculaire – Coffret Dresseur d’Elite FR",
-   "total": 96.89,
+   "total": 81.89,
    "type": "etb",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/coffret-dresseur-delite/pokemon-etb-ev06-mascarade-crepusculaire-coffret-dresseur-delite-fr/",
    "vu": "2026-11-11"
@@ -7331,5 +7331,5 @@
    "vu": "2026-11-11"
   }
  },
- "sauvegarde": "2026-11-11T07:38:42.669057+00:00"
+ "sauvegarde": "2026-11-11T09:32:26.111063+00:00"
 }
