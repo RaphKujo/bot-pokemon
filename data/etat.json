@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 62,
+   "nb_offres": 63,
    "ok": true,
    "panne_depuis": null
   },
@@ -2698,6 +2698,36 @@
    "total": 76.8,
    "type": "bundle",
    "url": "https://kairyu.fr/products/scelle-bundle-ev04-5-destinees-de-paldea-fr?variant=58904166859087",
+   "vu": "2026-11-11"
+  },
+  "kairyu:59127127703887": {
+   "alertable": true,
+   "base": 215.64,
+   "boutique": "kairyu",
+   "boutique_nom": "Kairyu",
+   "cle": "regne-delta:display",
+   "code": "ME06",
+   "compare": 246.8,
+   "derniere_alerte": "2026-11-11T16:20:26.810813+00:00",
+   "dispo": "stock",
+   "groupe": false,
+   "id": "kairyu:59127127703887",
+   "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/display-regne-delta-fr.png?v=1792084156",
+   "mode": "prix",
+   "note": null,
+   "port": 6.9,
+   "port_inconnu": false,
+   "priorite": "haute",
+   "prix": 239.9,
+   "prix_alerte": 239.9,
+   "prix_min": 239.9,
+   "seuil": 247.99,
+   "suivi_id": "regne-delta",
+   "suivi_nom": "Règne Delta",
+   "titre": "[SCELLE] Display ME06 - Règne Delta [FR]",
+   "total": 246.8,
+   "type": "display",
+   "url": "https://kairyu.fr/products/scelle-display-me06-regne-delta-fr?variant=59127127703887",
    "vu": "2026-11-11"
   },
   "kairyu:59271891124559": {
@@ -7359,5 +7389,5 @@
    "vu": "2026-11-11"
   }
  },
- "sauvegarde": "2026-11-11T15:24:09.141371+00:00"
+ "sauvegarde": "2026-11-11T16:20:26.810813+00:00"
 }
