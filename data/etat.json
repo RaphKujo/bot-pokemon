@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 17,
+   "nb_offres": 16,
    "ok": true,
    "panne_depuis": null
   },
@@ -600,7 +600,7 @@
    "cle": "regne-delta:display",
    "code": "ME06",
    "compare": 266.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202619",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/10/Pokemon-Display-Regne-Delta-ME06-Boite-de-36-Boosters-en-francais.png",
@@ -7389,5 +7389,5 @@
    "vu": "2026-11-12"
   }
  },
- "sauvegarde": "2026-11-12T18:25:36.073157+00:00"
+ "sauvegarde": "2026-11-12T19:24:44.062577+00:00"
 }
