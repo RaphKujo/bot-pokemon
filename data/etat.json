@@ -366,6 +366,34 @@
    "url": "https://chocobp.com/i5pq97",
    "vu": "2026-11-13"
   },
+  "chocobonplan:319144": {
+   "alertable": false,
+   "base": 5.99,
+   "boutique": "chocobonplan",
+   "boutique_nom": "Micromania",
+   "cle": "regne-delta:booster",
+   "code": "ME06",
+   "compare": 6.99,
+   "dispo": "precommande",
+   "groupe": false,
+   "id": "chocobonplan:319144",
+   "image": "https://cdn.chocobonplan.com/medias/133591/booster-pokemon-me06-regne-delta-visuel-produit_20261113102543.png",
+   "mode": "prix",
+   "note": "Repéré par ChocoBonPlan. Vérifie le prix et le stock sur le site du vendeur.",
+   "port": 0.0,
+   "port_inconnu": true,
+   "priorite": "haute",
+   "prix": 6.99,
+   "prix_min": 6.99,
+   "seuil": 6.89,
+   "suivi_id": "regne-delta",
+   "suivi_nom": "Règne Delta",
+   "titre": "Booster Pokémon ME06 Règne Delta",
+   "total": 6.99,
+   "type": "booster",
+   "url": "https://chocobp.com/6nam5x",
+   "vu": "2026-11-13"
+  },
   "coin-des-barons:167288": {
    "alertable": true,
    "base": null,
@@ -7389,5 +7417,5 @@
    "vu": "2026-11-13"
   }
  },
- "sauvegarde": "2026-11-13T07:50:37.471030+00:00"
+ "sauvegarde": "2026-11-13T09:39:46.761840+00:00"
 }
