@@ -15,10 +15,10 @@
   },
   "coin-des-barons": {
    "init": true,
-   "message": "catalogue illisible : la boutique n'expose pas ce flux",
+   "message": null,
    "nb_offres": 16,
-   "ok": false,
-   "panne_depuis": "2026-11-13T21:26:49.446857+00:00"
+   "ok": true,
+   "panne_depuis": null
   },
   "cultura": {
    "a_configurer": true
@@ -7417,5 +7417,5 @@
    "vu": "2026-11-13"
   }
  },
- "sauvegarde": "2026-11-13T21:26:49.446857+00:00"
+ "sauvegarde": "2026-11-13T22:13:43.108069+00:00"
 }
