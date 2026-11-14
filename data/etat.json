@@ -2701,14 +2701,14 @@
    "vu": "2026-11-14"
   },
   "kairyu:58904166859087": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "destinees-de-paldea:bundle",
    "code": "EV04.5",
    "compare": 76.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:58904166859087",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/display-bundle-ev4-5-destinees-de-paldea.png?v=1790600880",
@@ -7417,5 +7417,5 @@
    "vu": "2026-11-14"
   }
  },
- "sauvegarde": "2026-11-14T07:28:36.952825+00:00"
+ "sauvegarde": "2026-11-14T09:11:10.860712+00:00"
 }
