@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 16,
+   "nb_offres": 15,
    "ok": true,
    "panne_depuis": null
   },
@@ -600,7 +600,7 @@
    "cle": "regne-delta:etb",
    "code": "ME06",
    "compare": 106.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202618",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-ETB-Regne-Delta-ME06-Coffret-Dresseur-dElite-en-francais.png",
@@ -7417,5 +7417,5 @@
    "vu": "2026-11-15"
   }
  },
- "sauvegarde": "2026-11-15T19:05:14.547075+00:00"
+ "sauvegarde": "2026-11-15T20:22:21.046879+00:00"
 }
