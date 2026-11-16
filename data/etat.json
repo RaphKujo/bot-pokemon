@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 8,
+   "nb_offres": 7,
    "ok": true,
    "panne_depuis": null
   },
@@ -7479,5 +7479,5 @@
    "vu": "2026-11-16"
   }
  },
- "sauvegarde": "2026-11-16T21:12:57.988262+00:00"
+ "sauvegarde": "2026-11-16T22:44:24.498123+00:00"
 }
