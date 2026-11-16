@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 7,
+   "nb_offres": 8,
    "ok": true,
    "panne_depuis": null
   },
@@ -309,14 +309,15 @@
    "vu": "2026-11-16"
   },
   "chocobonplan:318507": {
-   "alertable": false,
+   "alertable": true,
    "base": 24.99,
    "boutique": "chocobonplan",
    "boutique_nom": "Amazon",
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 26.99,
-   "dispo": "retiree",
+   "derniere_alerte": "2026-11-16T06:40:36.536253+00:00",
+   "dispo": "stock",
    "groupe": false,
    "id": "chocobonplan:318507",
    "image": "https://cdn.chocobonplan.com/medias/127359/coffret-30e-anniversaire-nymphali-ex-pokemon-visuel-produit_20260909115945.png",
@@ -326,7 +327,8 @@
    "port_inconnu": true,
    "priorite": "normale",
    "prix": 26.99,
-   "prix_min": null,
+   "prix_alerte": 26.99,
+   "prix_min": 26.99,
    "seuil": 28.74,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
@@ -334,7 +336,7 @@
    "total": 26.99,
    "type": "coffret",
    "url": "https://chocobp.com/fbucyk",
-   "vu": "2026-11-06"
+   "vu": "2026-11-16"
   },
   "chocobonplan:319033": {
    "alertable": true,
@@ -7417,5 +7419,5 @@
    "vu": "2026-11-16"
   }
  },
- "sauvegarde": "2026-11-16T05:13:44.519264+00:00"
+ "sauvegarde": "2026-11-16T06:40:36.536253+00:00"
 }
