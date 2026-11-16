@@ -372,7 +372,7 @@
    "alertable": false,
    "base": 5.99,
    "boutique": "chocobonplan",
-   "boutique_nom": "Micromania",
+   "boutique_nom": "Fnac",
    "cle": "regne-delta:booster",
    "code": "ME06",
    "compare": 6.99,
@@ -393,7 +393,7 @@
    "titre": "Booster Pokémon ME06 Règne Delta",
    "total": 6.99,
    "type": "booster",
-   "url": "https://chocobp.com/6nam5x",
+   "url": "https://chocobp.com/lzpbsu",
    "vu": "2026-11-16"
   },
   "coin-des-barons:167288": {
@@ -7449,5 +7449,5 @@
    "vu": "2026-11-16"
   }
  },
- "sauvegarde": "2026-11-16T09:25:16.796304+00:00"
+ "sauvegarde": "2026-11-16T10:53:01.603286+00:00"
 }
