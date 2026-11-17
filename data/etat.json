@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 16,
+   "nb_offres": 17,
    "ok": true,
    "panne_depuis": null
   },
@@ -760,6 +760,34 @@
    "total": 43.89,
    "type": "tripack",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/tripack-pokemon/pokemon-tripack-30e-anniversaire-lucario-en-francais/",
+   "vu": "2026-11-17"
+  },
+  "coin-des-barons:224008": {
+   "alertable": false,
+   "base": 5.99,
+   "boutique": "coin-des-barons",
+   "boutique_nom": "Le Coin des Barons",
+   "cle": "regne-delta:booster",
+   "code": "ME06",
+   "compare": 7.99,
+   "dispo": "stock",
+   "groupe": false,
+   "id": "coin-des-barons:224008",
+   "image": "https://lecoindesbarons.com/wp-content/uploads/2026/11/pokemon-blister-regne-delta-me06-francais.webp",
+   "mode": "prix",
+   "note": null,
+   "port": 6.9,
+   "port_inconnu": false,
+   "priorite": "haute",
+   "prix": 7.99,
+   "prix_min": 7.99,
+   "seuil": 6.89,
+   "suivi_id": "regne-delta",
+   "suivi_nom": "Règne Delta",
+   "titre": "Pokémon – Booster Blister – Règne Delta – ME06 – en français",
+   "total": 14.89,
+   "type": "booster",
+   "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/booster-pokemon/pokemon-booster-blister-regne-delta-me06-en-francais/",
    "vu": "2026-11-17"
   },
   "coin-des-barons:28068": {
@@ -7479,5 +7507,5 @@
    "vu": "2026-11-17"
   }
  },
- "sauvegarde": "2026-11-17T16:31:41.436455+00:00"
+ "sauvegarde": "2026-11-17T17:34:39.227337+00:00"
 }
