@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 62,
+   "nb_offres": 61,
    "ok": true,
    "panne_depuis": null
   },
@@ -1449,7 +1449,7 @@
    "code": null,
    "compare": 276.8,
    "derniere_alerte": "2026-11-08T11:00:43.657581+00:00",
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": true,
    "id": "kairyu:46603431248207",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/040523-1.png?v=1683229338",
@@ -7479,5 +7479,5 @@
    "vu": "2026-11-17"
   }
  },
- "sauvegarde": "2026-11-17T09:41:47.460451+00:00"
+ "sauvegarde": "2026-11-17T10:41:21.992309+00:00"
 }
