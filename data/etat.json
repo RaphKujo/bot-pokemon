@@ -461,7 +461,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "30-ans:etb",
    "code": null,
-   "compare": 156.89,
+   "compare": 176.89,
    "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:193900",
@@ -471,13 +471,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 149.99,
+   "prix": 169.99,
    "prix_min": 139.99,
    "seuil": 64.39,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Pokémon – ETB – 30e Anniversaire – Coffret Dresseur d’Elite en français",
-   "total": 156.89,
+   "total": 176.89,
    "type": "etb",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/coffret-dresseur-delite/pokemon-etb-30e-anniversaire-coffret-dresseur-delite-en-francais/",
    "vu": "2026-11-18"
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-18"
   }
  },
- "sauvegarde": "2026-11-18T19:19:24.070201+00:00"
+ "sauvegarde": "2026-11-18T20:17:10.510507+00:00"
 }
