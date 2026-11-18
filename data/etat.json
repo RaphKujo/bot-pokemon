@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 22,
+   "nb_offres": 23,
    "ok": true,
    "panne_depuis": null
   },
@@ -874,6 +874,36 @@
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/booster-pokemon/flammes-obsidiennes-ev03/",
    "vu": "2026-11-18"
   },
+  "coin-des-barons:46178": {
+   "alertable": true,
+   "base": null,
+   "boutique": "coin-des-barons",
+   "boutique_nom": "Le Coin des Barons",
+   "cle": "anciennes:display:forces temporelles",
+   "code": null,
+   "compare": 306.89,
+   "derniere_alerte": "2026-11-18T13:07:17.153511+00:00",
+   "dispo": "stock",
+   "groupe": true,
+   "id": "coin-des-barons:46178",
+   "image": "https://lecoindesbarons.com/wp-content/uploads/2023/12/Frame-1455.png",
+   "mode": "stock",
+   "note": null,
+   "port": 6.9,
+   "port_inconnu": false,
+   "priorite": "normale",
+   "prix": 299.99,
+   "prix_alerte": 299.99,
+   "prix_min": 299.99,
+   "seuil": null,
+   "suivi_id": "anciennes",
+   "suivi_nom": "Anciennes séries",
+   "titre": "Pokemon – Display – Forces Temporelles – EV05 – Boîte de 36 Boosters en français",
+   "total": 306.89,
+   "type": "display",
+   "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/display-pokemon/pokemon-display-ev05-forces-temporelles-boite-de-36-boosters-fr/",
+   "vu": "2026-11-18"
+  },
   "coin-des-barons:51171": {
    "alertable": true,
    "base": null,
@@ -997,7 +1027,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "anciennes:display:aventures ensemble",
    "code": null,
-   "compare": 316.89,
+   "compare": 346.89,
    "derniere_alerte": "2026-11-16T17:40:13.457440+00:00",
    "dispo": "stock",
    "groupe": true,
@@ -1008,14 +1038,14 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 309.99,
+   "prix": 339.99,
    "prix_alerte": 309.99,
    "prix_min": 309.99,
    "seuil": null,
    "suivi_id": "anciennes",
    "suivi_nom": "Anciennes séries",
    "titre": "Pokémon – Display – Aventures Ensemble – Display with Topper (Promo) – EV09 – Boîte de Boosters en français",
-   "total": 316.89,
+   "total": 346.89,
    "type": "display",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/display-pokemon/pokemon-display-avec-carte-promo-ev09-boite-de-boosters-en-francais-reassort-prevu-pour-debut-juillet/",
    "vu": "2026-11-18"
@@ -7567,5 +7597,5 @@
    "vu": "2026-11-18"
   }
  },
- "sauvegarde": "2026-11-18T11:04:12.838931+00:00"
+ "sauvegarde": "2026-11-18T13:07:17.153511+00:00"
 }
