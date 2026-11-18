@@ -2885,14 +2885,14 @@
    "vu": "2026-11-18"
   },
   "kairyu:58384065364303": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "mega-evolution:display",
    "code": "ME01",
    "compare": 276.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:58384065364303",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_607.png?v=1755771582",
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-18"
   }
  },
- "sauvegarde": "2026-11-18T22:00:27.884227+00:00"
+ "sauvegarde": "2026-11-18T23:37:19.454761+00:00"
 }
