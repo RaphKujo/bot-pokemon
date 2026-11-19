@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 5,
+   "nb_offres": 6,
    "ok": true,
    "panne_depuis": null
   },
@@ -188,7 +188,7 @@
    "total": 54.99,
    "type": "coffret",
    "url": "https://chocobp.com/bzaykt",
-   "vu": "2026-11-16"
+   "vu": "2026-11-19"
   },
   "chocobonplan:315740": {
    "alertable": false,
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-19"
   }
  },
- "sauvegarde": "2026-11-19T18:36:51.422900+00:00"
+ "sauvegarde": "2026-11-19T19:41:47.760547+00:00"
 }
