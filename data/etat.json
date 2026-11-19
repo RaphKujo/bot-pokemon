@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 26,
+   "nb_offres": 18,
    "ok": true,
    "panne_depuis": null
   },
@@ -462,7 +462,7 @@
    "cle": "30-ans:etb",
    "code": null,
    "compare": 176.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:193900",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-coffret-dresseur-delite-etb-pokemon-fr-6a4e85f39d043-1.webp",
@@ -490,7 +490,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 51.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:193902",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-collection-poster-pokemon-fr-6a4e86a3738b6-1.webp",
@@ -518,7 +518,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 56.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:193904",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-coffret-amphinobi-ex-pokemon-fr-6a4e7f1357552-1.webp",
@@ -546,7 +546,7 @@
    "cle": "30-ans:bundle",
    "code": null,
    "compare": 81.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202612",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-–-Bundle-–-30e-Anniversaire-–-6-Boosters-–-en-francais.png",
@@ -574,7 +574,7 @@
    "cle": "30-ans:mini-tin",
    "code": null,
    "compare": 51.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202614",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-Pokebox-30e-Anniversaire-Mega-Amphinobi-ex-en-francais-3.png",
@@ -714,7 +714,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 106.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202623",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-Coffret-30e-Anniversaire-Collection-Premium-Metamorph-en-francais-1-1.png",
@@ -742,7 +742,7 @@
    "cle": "30-ans:tripack",
    "code": null,
    "compare": 36.99,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202634",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-Tripack-30e-Anniversaire-Noadkoko-en-francais.png",
@@ -770,7 +770,7 @@
    "cle": "30-ans:tripack",
    "code": null,
    "compare": 36.99,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:202635",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-Tripack-30e-Anniversaire-Lucario-en-francais.png",
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-19"
   }
  },
- "sauvegarde": "2026-11-19T08:56:22.643408+00:00"
+ "sauvegarde": "2026-11-19T10:51:19.492685+00:00"
 }
