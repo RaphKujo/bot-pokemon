@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 27,
+   "nb_offres": 26,
    "ok": true,
    "panne_depuis": null
   },
@@ -1049,7 +1049,7 @@
    "vu": "2026-11-19"
   },
   "coin-des-barons:83141": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "coin-des-barons",
    "boutique_nom": "Le Coin des Barons",
@@ -1057,7 +1057,7 @@
    "code": null,
    "compare": 86.89,
    "derniere_alerte": "2026-11-18T11:04:12.838931+00:00",
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": true,
    "id": "coin-des-barons:83141",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2025/05/Pokemon-Bundle-EV8.5-Evolutions-Prismatiques-En-francais.jpg",
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-19"
   }
  },
- "sauvegarde": "2026-11-19T07:57:12.473602+00:00"
+ "sauvegarde": "2026-11-19T08:56:22.643408+00:00"
 }
