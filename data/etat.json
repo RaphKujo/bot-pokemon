@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 60,
+   "nb_offres": 57,
    "ok": true,
    "panne_depuis": null
   },
@@ -2864,7 +2864,7 @@
    "cle": "mega-evolution:demi-display",
    "code": "ME01",
    "compare": 146.8,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:58384065331535",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_607.png?v=1755771582",
@@ -2892,7 +2892,7 @@
    "cle": "mega-evolution:display",
    "code": "ME01",
    "compare": 276.8,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:58384065364303",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_607.png?v=1755771582",
@@ -2920,7 +2920,7 @@
    "cle": "mega-evolution:display",
    "code": "ME01",
    "compare": 406.8,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:58384065397071",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_607.png?v=1755771582",
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-19"
   }
  },
- "sauvegarde": "2026-11-19T12:45:16.868785+00:00"
+ "sauvegarde": "2026-11-19T14:00:44.771182+00:00"
 }
