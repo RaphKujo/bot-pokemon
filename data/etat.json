@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 57,
+   "nb_offres": 56,
    "ok": true,
    "panne_depuis": null
   },
@@ -2168,7 +2168,7 @@
    "cle": "foudre-noire:bundle",
    "code": "EV10.5",
    "compare": 81.8,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:55478301983055",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_612.png?v=1756670892",
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-20"
   }
  },
- "sauvegarde": "2026-11-20T15:41:06.435351+00:00"
+ "sauvegarde": "2026-11-20T16:39:25.283613+00:00"
 }
