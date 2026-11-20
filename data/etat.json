@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 6,
+   "nb_offres": 7,
    "ok": true,
    "panne_depuis": null
   },
@@ -48,6 +48,36 @@
   }
  },
  "offres": {
+  "chocobonplan:244994": {
+   "alertable": true,
+   "base": null,
+   "boutique": "chocobonplan",
+   "boutique_nom": "Fnac",
+   "cle": "anciennes:coffret:mascarade crepusculaire",
+   "code": null,
+   "compare": 55.99,
+   "derniere_alerte": "2026-11-20T09:43:58.367024+00:00",
+   "dispo": "stock",
+   "groupe": true,
+   "id": "chocobonplan:244994",
+   "image": "https://cdn.chocobonplan.com/medias/71437/coffret-elite-mascarade-crépusculaire-visuel-produit.png",
+   "mode": "stock",
+   "note": "Repéré par ChocoBonPlan. Vérifie le prix et le stock sur le site du vendeur.",
+   "port": 0.0,
+   "port_inconnu": true,
+   "priorite": "normale",
+   "prix": 55.99,
+   "prix_alerte": 55.99,
+   "prix_min": 55.99,
+   "seuil": null,
+   "suivi_id": "anciennes",
+   "suivi_nom": "Anciennes séries",
+   "titre": "Coffret Elite Mascarade Crépusculaire",
+   "total": 55.99,
+   "type": "coffret",
+   "url": "https://bit.ly/3UDtp4q",
+   "vu": "2026-11-20"
+  },
   "chocobonplan:279538": {
    "alertable": false,
    "base": null,
@@ -7685,5 +7715,5 @@
    "vu": "2026-11-20"
   }
  },
- "sauvegarde": "2026-11-20T08:49:01.159804+00:00"
+ "sauvegarde": "2026-11-20T09:43:58.367024+00:00"
 }
