@@ -219,15 +219,15 @@
    "vu": "2026-11-20"
   },
   "chocobonplan:318271": {
-   "alertable": false,
+   "alertable": true,
    "base": 55.99,
    "boutique": "chocobonplan",
    "boutique_nom": "Amazon",
    "cle": "regne-delta:etb",
    "code": "ME06",
    "compare": 55.99,
-   "derniere_alerte": "2026-11-05T11:27:05.424775+00:00",
-   "dispo": "retiree",
+   "derniere_alerte": "2026-11-20T08:49:01.159804+00:00",
+   "dispo": "stock",
    "groupe": false,
    "id": "chocobonplan:318271",
    "image": "https://cdn.chocobonplan.com/medias/125423/etb-pokemon-me06-regne-delta-visuel-produit_20260820154833.png",
@@ -245,8 +245,8 @@
    "titre": "ETB Pokémon ME06 Règne Delta",
    "total": 55.99,
    "type": "etb",
-   "url": "https://chocobp.com/eq2xot",
-   "vu": "2026-11-12"
+   "url": "https://chocobp.com/84vrus",
+   "vu": "2026-11-20"
   },
   "chocobonplan:318272": {
    "alertable": true,
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-20"
   }
  },
- "sauvegarde": "2026-11-20T07:52:13.227980+00:00"
+ "sauvegarde": "2026-11-20T08:49:01.159804+00:00"
 }
