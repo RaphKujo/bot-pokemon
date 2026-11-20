@@ -1423,14 +1423,14 @@
    "vu": "2026-11-08"
   },
   "kairyu:43722039099651": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "tempete-argentee:tripack",
    "code": "EB12",
    "compare": 89.9,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:43722039099651",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/070223-12.png?v=1675806503",
@@ -2073,14 +2073,14 @@
    "vu": "2026-11-20"
   },
   "kairyu:55478301983055": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "foudre-noire:bundle",
    "code": "EV10.5",
    "compare": 81.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:55478301983055",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_612.png?v=1756670892",
@@ -7685,5 +7685,5 @@
    "vu": "2026-11-20"
   }
  },
- "sauvegarde": "2026-11-20T00:30:30.051426+00:00"
+ "sauvegarde": "2026-11-20T01:47:18.757021+00:00"
 }
