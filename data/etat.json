@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 56,
+   "nb_offres": 53,
    "ok": true,
    "panne_depuis": null
   },
@@ -2084,7 +2084,7 @@
    "cle": "anciennes:bundle:evolutions prismatiques",
    "code": null,
    "compare": 76.8,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": true,
    "id": "kairyu:54054467371343",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/bundle85.png?v=1736352050",
@@ -3241,7 +3241,7 @@
    "code": "EB12",
    "compare": 236.8,
    "derniere_alerte": "2026-11-08T11:00:43.657581+00:00",
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:59430625313103",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/151222-2.png?v=1671111518",
@@ -3271,7 +3271,7 @@
    "code": "EB12",
    "compare": 406.8,
    "derniere_alerte": "2026-11-18T17:26:46.145911+00:00",
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:59430625345871",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/151222-2.png?v=1671111518",
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-21"
   }
  },
- "sauvegarde": "2026-11-21T12:18:21.517690+00:00"
+ "sauvegarde": "2026-11-21T13:23:12.911440+00:00"
 }
