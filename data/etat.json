@@ -2077,14 +2077,14 @@
    "vu": "2026-11-21"
   },
   "kairyu:54054467371343": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "anciennes:bundle:evolutions prismatiques",
    "code": null,
    "compare": 76.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": true,
    "id": "kairyu:54054467371343",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/bundle85.png?v=1736352050",
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-21"
   }
  },
- "sauvegarde": "2026-11-21T10:50:36.916787+00:00"
+ "sauvegarde": "2026-11-21T12:18:21.517690+00:00"
 }
