@@ -2189,14 +2189,14 @@
    "vu": "2026-11-20"
   },
   "kairyu:55478307586383": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "flamme-blanche:bundle",
    "code": "EV10.5",
    "compare": 81.8,
-   "dispo": "stock",
+   "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:55478307586383",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/files/Calque_613.png?v=1756670949",
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-22"
   }
  },
- "sauvegarde": "2026-11-22T18:49:15.040685+00:00"
+ "sauvegarde": "2026-11-22T19:37:53.324389+00:00"
 }
