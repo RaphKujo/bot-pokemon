@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 7,
+   "nb_offres": 8,
    "ok": true,
    "panne_depuis": null
   },
@@ -304,7 +304,7 @@
    "total": 24.9,
    "type": "mini-tin",
    "url": "https://bit.ly/4i9lRSC",
-   "vu": "2026-11-20"
+   "vu": "2026-11-23"
   },
   "chocobonplan:318271": {
    "alertable": true,
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-23"
   }
  },
- "sauvegarde": "2026-11-23T21:42:00.139116+00:00"
+ "sauvegarde": "2026-11-23T23:27:42.795057+00:00"
 }
