@@ -9,7 +9,7 @@
   "chocobonplan": {
    "init": true,
    "message": null,
-   "nb_offres": 8,
+   "nb_offres": 9,
    "ok": true,
    "panne_depuis": null
   },
@@ -370,10 +370,10 @@
    "alertable": true,
    "base": 17.99,
    "boutique": "chocobonplan",
-   "boutique_nom": "Amazon",
+   "boutique_nom": "E.Leclerc",
    "cle": "regne-delta:tripack",
    "code": "ME06",
-   "compare": 17.99,
+   "compare": 17.9,
    "derniere_alerte": "2026-11-05T11:27:05.424775+00:00",
    "dispo": "stock",
    "groupe": false,
@@ -384,17 +384,17 @@
    "port": 0.0,
    "port_inconnu": true,
    "priorite": "haute",
-   "prix": 17.99,
+   "prix": 17.9,
    "prix_alerte": 17.99,
-   "prix_min": 17.99,
+   "prix_min": 17.9,
    "seuil": 20.69,
    "suivi_id": "regne-delta",
    "suivi_nom": "Règne Delta",
    "titre": "Tripack Otaria ME06 Règne Delta",
-   "total": 17.99,
+   "total": 17.9,
    "type": "tripack",
-   "url": "https://chocobp.com/h0f2u1",
-   "vu": "2026-11-20"
+   "url": "https://chocobp.com/ujexlt",
+   "vu": "2026-11-24"
   },
   "chocobonplan:318507": {
    "alertable": true,
@@ -7773,5 +7773,5 @@
    "vu": "2026-11-24"
   }
  },
- "sauvegarde": "2026-11-24T09:03:41.217121+00:00"
+ "sauvegarde": "2026-11-24T10:12:09.023581+00:00"
 }
