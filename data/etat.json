@@ -29,7 +29,7 @@
   "kairyu": {
    "init": true,
    "message": null,
-   "nb_offres": 51,
+   "nb_offres": 48,
    "ok": true,
    "panne_depuis": null
   },
@@ -1518,7 +1518,7 @@
    "cle": "tempete-argentee:tripack",
    "code": "EB12",
    "compare": 89.9,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:43722039099651",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/070223-12.png?v=1675806503",
@@ -1546,7 +1546,7 @@
    "cle": "tempete-argentee:tripack",
    "code": "EB12",
    "compare": 89.9,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:43722039132419",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/070223-10.png?v=1675806527",
@@ -1574,7 +1574,7 @@
    "cle": "tempete-argentee:tripack",
    "code": "EB12",
    "compare": 89.9,
-   "dispo": "rupture",
+   "dispo": "retiree",
    "groupe": false,
    "id": "kairyu:43722039165187",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/070223-11.png?v=1675806547",
@@ -7829,5 +7829,5 @@
    "vu": "2026-11-25"
   }
  },
- "sauvegarde": "2026-11-25T08:03:53.448138+00:00"
+ "sauvegarde": "2026-11-25T09:10:50.565261+00:00"
 }
