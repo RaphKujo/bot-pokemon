@@ -15,10 +15,10 @@
   },
   "coin-des-barons": {
    "init": true,
-   "message": null,
+   "message": "accès refusé (code 403)",
    "nb_offres": 17,
-   "ok": true,
-   "panne_depuis": null
+   "ok": false,
+   "panne_depuis": "2026-11-26T16:42:00.491451+00:00"
   },
   "cultura": {
    "a_configurer": true
@@ -7829,5 +7829,5 @@
    "vu": "2026-11-26"
   }
  },
- "sauvegarde": "2026-11-26T15:37:55.157140+00:00"
+ "sauvegarde": "2026-11-26T16:42:00.491451+00:00"
 }
