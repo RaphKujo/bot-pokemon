@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 18,
+   "nb_offres": 17,
    "ok": true,
    "panne_depuis": null
   },
@@ -1107,7 +1107,7 @@
    "vu": "2026-11-26"
   },
   "coin-des-barons:81853": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "coin-des-barons",
    "boutique_nom": "Le Coin des Barons",
@@ -1115,7 +1115,7 @@
    "code": null,
    "compare": 356.89,
    "derniere_alerte": "2026-11-18T14:22:22.663170+00:00",
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": true,
    "id": "coin-des-barons:81853",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2025/04/display_ev10_pokedia.webp",
@@ -7829,5 +7829,5 @@
    "vu": "2026-11-26"
   }
  },
- "sauvegarde": "2026-11-26T10:10:50.685042+00:00"
+ "sauvegarde": "2026-11-26T11:05:54.787295+00:00"
 }
