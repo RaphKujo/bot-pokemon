@@ -18,7 +18,8 @@
    "message": "accès refusé (code 403)",
    "nb_offres": 17,
    "ok": false,
-   "panne_depuis": "2026-11-26T16:42:00.491451+00:00"
+   "panne_depuis": "2026-11-26T16:42:00.491451+00:00",
+   "panne_signalee": true
   },
   "cultura": {
    "a_configurer": true
@@ -7829,5 +7830,5 @@
    "vu": "2026-11-26"
   }
  },
- "sauvegarde": "2026-11-26T16:42:00.491451+00:00"
+ "sauvegarde": "2026-11-26T17:36:17.172541+00:00"
 }
