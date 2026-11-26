@@ -1291,7 +1291,7 @@
    "boutique_nom": "Kairyu",
    "cle": "evolution-celeste:display",
    "code": "EB07",
-   "compare": 1806.9,
+   "compare": 1956.9,
    "dispo": "rupture",
    "groupe": false,
    "id": "kairyu:42528034816259",
@@ -1301,13 +1301,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "haute",
-   "prix": 1800.0,
+   "prix": 1950.0,
    "prix_min": null,
    "seuil": null,
    "suivi_id": "evolution-celeste",
    "suivi_nom": "Évolution Céleste",
    "titre": "[SCELLE] Display EB07 - Evolution Céleste [FR]",
-   "total": 1806.9,
+   "total": 1956.9,
    "type": "display",
    "url": "https://kairyu.fr/products/scelle-display-eb7-evolution-celeste-fr?variant=42528034816259",
    "vu": "2026-11-26"
@@ -7829,5 +7829,5 @@
    "vu": "2026-11-26"
   }
  },
- "sauvegarde": "2026-11-26T14:35:56.421099+00:00"
+ "sauvegarde": "2026-11-26T15:37:55.157140+00:00"
 }
