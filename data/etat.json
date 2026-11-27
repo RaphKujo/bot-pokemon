@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 21,
+   "nb_offres": 22,
    "ok": true,
    "panne_depuis": null
   },
@@ -578,7 +578,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 47.39,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:193902",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-collection-poster-pokemon-fr-6a4e86a3738b6-1.webp",
@@ -606,7 +606,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 51.89,
-   "dispo": "retiree",
+   "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:193904",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/08/30e-anniversaire-coffret-amphinobi-ex-pokemon-fr-6a4e7f1357552-1.webp",
@@ -661,8 +661,8 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "30-ans:bundle",
    "code": null,
-   "compare": 81.89,
-   "dispo": "retiree",
+   "compare": 78.14,
+   "dispo": "stock",
    "groupe": false,
    "id": "coin-des-barons:202612",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/09/Pokemon-–-Bundle-–-30e-Anniversaire-–-6-Boosters-–-en-francais.png",
@@ -671,16 +671,16 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 74.99,
-   "prix_min": 74.99,
+   "prix": 71.24,
+   "prix_min": 71.24,
    "seuil": 41.39,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Pokémon – Bundle – 30e Anniversaire – 6 Boosters – en français",
-   "total": 81.89,
+   "total": 78.14,
    "type": "bundle",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/bundle-pokemon/pokemon-bundle-30e-anniversaire-6-boosters-en-francais/",
-   "vu": "2026-11-19"
+   "vu": "2026-11-27"
   },
   "coin-des-barons:202614": {
    "alertable": false,
@@ -1003,7 +1003,7 @@
    "boutique_nom": "Le Coin des Barons",
    "cle": "anciennes:display:evolutions a paldea",
    "code": null,
-   "compare": 222.89,
+   "compare": 216.89,
    "dispo": "stock",
    "groupe": true,
    "id": "coin-des-barons:35752",
@@ -1013,13 +1013,13 @@
    "port": 6.9,
    "port_inconnu": false,
    "priorite": "normale",
-   "prix": 215.99,
-   "prix_min": 215.99,
+   "prix": 209.99,
+   "prix_min": 209.99,
    "seuil": null,
    "suivi_id": "anciennes",
    "suivi_nom": "Anciennes séries",
    "titre": "Pokémon – Display – Évolutions à Paldea – EV02 – Boîte de 36 Boosters en français",
-   "total": 222.89,
+   "total": 216.89,
    "type": "display",
    "url": "https://lecoindesbarons.com/tradingcard-game/cartes-pokemon/display-pokemon/pokemon-boite-de-boosters-francais-display-36-boosters-ev02-ecarlate-et-violet-evolutions-a-paldea/",
    "vu": "2026-11-27"
@@ -7923,5 +7923,5 @@
    "vu": "2026-11-27"
   }
  },
- "sauvegarde": "2026-11-27T15:38:15.733909+00:00"
+ "sauvegarde": "2026-11-27T16:44:04.322246+00:00"
 }
