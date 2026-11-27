@@ -174,7 +174,7 @@
    "cle": "30-ans:ultra-premium",
    "code": null,
    "compare": 229.99,
-   "dispo": "retiree",
+   "dispo": "stock",
    "groupe": false,
    "id": "chocobonplan:315692",
    "image": "https://cdn.chocobonplan.com/medias/120741/coffret-ultra-premium-pokemon-30eme-anniversaire-visuel-produit_20260630171817.png",
@@ -192,7 +192,7 @@
    "total": 229.99,
    "type": "ultra-premium",
    "url": "https://chocobp.com/bwnhmz",
-   "vu": "2026-11-09"
+   "vu": "2026-11-27"
   },
   "chocobonplan:315695": {
    "alertable": false,
@@ -229,7 +229,7 @@
    "boutique_nom": "Amazon",
    "cle": "30-ans:coffret",
    "code": null,
-   "compare": 54.99,
+   "compare": 49.89,
    "dispo": "stock",
    "groupe": false,
    "id": "chocobonplan:315716",
@@ -239,13 +239,13 @@
    "port": 0.0,
    "port_inconnu": true,
    "priorite": "normale",
-   "prix": 54.99,
-   "prix_min": 54.99,
+   "prix": 49.89,
+   "prix_min": 49.89,
    "seuil": 28.74,
    "suivi_id": "30-ans",
    "suivi_nom": "30ᵉ Anniversaire",
    "titre": "Collection Premium Pokémon 30th Celebration Métamorph",
-   "total": 54.99,
+   "total": 49.89,
    "type": "coffret",
    "url": "https://chocobp.com/bzaykt",
    "vu": "2026-11-27"
@@ -1377,14 +1377,15 @@
    "vu": "2026-11-27"
   },
   "kairyu:42528034816259": {
-   "alertable": false,
+   "alertable": true,
    "base": null,
    "boutique": "kairyu",
    "boutique_nom": "Kairyu",
    "cle": "evolution-celeste:display",
    "code": "EB07",
    "compare": 1956.9,
-   "dispo": "rupture",
+   "derniere_alerte": "2026-11-27T10:27:15.487447+00:00",
+   "dispo": "stock",
    "groupe": false,
    "id": "kairyu:42528034816259",
    "image": "https://cdn.shopify.com/s/files/1/0589/6126/4811/products/2.png?v=1655279155",
@@ -1394,7 +1395,8 @@
    "port_inconnu": false,
    "priorite": "haute",
    "prix": 1950.0,
-   "prix_min": null,
+   "prix_alerte": 1950.0,
+   "prix_min": 1950.0,
    "seuil": null,
    "suivi_id": "evolution-celeste",
    "suivi_nom": "Évolution Céleste",
@@ -7921,5 +7923,5 @@
    "vu": "2026-11-27"
   }
  },
- "sauvegarde": "2026-11-27T09:21:44.775831+00:00"
+ "sauvegarde": "2026-11-27T10:27:15.487447+00:00"
 }
