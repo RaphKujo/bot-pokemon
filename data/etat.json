@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 22,
+   "nb_offres": 21,
    "ok": true,
    "panne_depuis": null
   },
@@ -969,14 +969,14 @@
    "vu": "2026-11-27"
   },
   "coin-des-barons:28068": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "coin-des-barons",
    "boutique_nom": "Le Coin des Barons",
    "cle": "origine-perdue:display",
    "code": "EB11",
    "compare": 406.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:28068",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2022/07/10.jpg",
@@ -7923,5 +7923,5 @@
    "vu": "2026-11-27"
   }
  },
- "sauvegarde": "2026-11-27T16:44:04.322246+00:00"
+ "sauvegarde": "2026-11-27T18:29:38.806493+00:00"
 }
