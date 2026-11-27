@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 24,
+   "nb_offres": 23,
    "ok": true,
    "panne_depuis": null
   },
@@ -492,7 +492,7 @@
    "cle": "30-ans:coffret",
    "code": null,
    "compare": 41.89,
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:132011",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2025/12/Pokemon-Coffret-30-Ans-Journee-2026-Pikachu-Pokemon-Day-en-Francais.jpg",
@@ -7921,5 +7921,5 @@
    "vu": "2026-11-27"
   }
  },
- "sauvegarde": "2026-11-27T04:45:27.727809+00:00"
+ "sauvegarde": "2026-11-27T05:43:54.509345+00:00"
 }
