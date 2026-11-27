@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 22,
+   "nb_offres": 21,
    "ok": true,
    "panne_depuis": null
   },
@@ -1319,7 +1319,7 @@
    "vu": "2026-11-27"
   },
   "coin-des-barons:93736": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "coin-des-barons",
    "boutique_nom": "Le Coin des Barons",
@@ -1327,7 +1327,7 @@
    "code": "ME01",
    "compare": 29.99,
    "derniere_alerte": "2026-11-25T13:50:10.265560+00:00",
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": false,
    "id": "coin-des-barons:93736",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2025/08/Pokemon-Tripack-Psykokwak-Mega-Evolution-M1L-en-francais-1.jpg",
@@ -7921,5 +7921,5 @@
    "vu": "2026-11-27"
   }
  },
- "sauvegarde": "2026-11-27T08:11:29.554857+00:00"
+ "sauvegarde": "2026-11-27T09:21:44.775831+00:00"
 }
