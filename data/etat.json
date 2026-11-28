@@ -16,7 +16,7 @@
   "coin-des-barons": {
    "init": true,
    "message": null,
-   "nb_offres": 21,
+   "nb_offres": 20,
    "ok": true,
    "panne_depuis": null
   },
@@ -513,7 +513,7 @@
    "vu": "2026-11-27"
   },
   "coin-des-barons:167288": {
-   "alertable": true,
+   "alertable": false,
    "base": null,
    "boutique": "coin-des-barons",
    "boutique_nom": "Le Coin des Barons",
@@ -521,7 +521,7 @@
    "code": null,
    "compare": 6.99,
    "derniere_alerte": "2026-11-05T13:40:42.943173+00:00",
-   "dispo": "stock",
+   "dispo": "retiree",
    "groupe": true,
    "id": "coin-des-barons:167288",
    "image": "https://lecoindesbarons.com/wp-content/uploads/2026/05/booster-ev02-evolutions-a-paldea-pokemon-ecarlate-et-violet-fr-sv2-682260c4b99b2.jpg",
@@ -7923,5 +7923,5 @@
    "vu": "2026-11-28"
   }
  },
- "sauvegarde": "2026-11-28T17:58:02.911346+00:00"
+ "sauvegarde": "2026-11-28T18:43:15.920875+00:00"
 }
